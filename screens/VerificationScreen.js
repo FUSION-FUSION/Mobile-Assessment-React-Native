@@ -1,14 +1,30 @@
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import {
+    View,
+    Text,
+    ImageBackground,
+    StyleSheet,
+    TextInput,
+} from "react-native";
 import React from "react";
 
 import { LinearGradient } from "expo-linear-gradient";
+import { useState } from "react";
+import { useEffect } from "react";
 const VerificationScreen = () => {
+    const [counter, setCounter] = useState(60);
+    // const [newCounter, setNewCounter] = useState(9);
+
+    useEffect(() => {
+        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    }, [counter]);
+    const handleTimer = () => {
+        clearTimeout(counter);
+        let counter = 60;
+        setTimeout(() => setCounter(counter - 1), 1000);
+    };
     return (
         <View style={{ flex: 1 }}>
-            <LinearGradient
-                colors={["#dbe4e9", "#f0f0f3"]}
-                // style={{ flex: 1 }}
-            >
+            <LinearGradient colors={["#dbe4e8", "#f0f0f3"]} style={{ flex: 1 }}>
                 <ImageBackground
                     source={require("../assets/Shipify-Assets/bg-app-cloud.png")}
                     style={styles.background}
@@ -30,6 +46,35 @@ const VerificationScreen = () => {
                             </Text>
                         </Text>
                     </View>
+
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            marginHorizontal: 5,
+                            paddingTop: 10,
+                        }}
+                    >
+                        <TextInput style={styles.input} maxLength={1} />
+
+                        <TextInput style={styles.input} maxLength={1} />
+
+                        <TextInput style={styles.input} maxLength={1} />
+
+                        <TextInput style={styles.input} maxLength={1} />
+
+                        <TextInput style={styles.input} maxLength={1} />
+                    </View>
+                    <Text
+                        style={{
+                            color: "#fa2c2d",
+                            textAlign: "right",
+                            width: "82%",
+                            marginTop: 5,
+                        }}
+                    >
+                        {counter === 0 ? "Code Expired" : counter}
+                    </Text>
+                    <Text onPress={() => handleTimer()}>Resend Code</Text>
                 </ImageBackground>
             </LinearGradient>
         </View>
@@ -58,15 +103,15 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     input: {
-        width: "100%",
         borderColor: "#555555",
-        borderRadius: 15,
+        borderRadius: 10,
         backgroundColor: "#ffffff",
-        textAlign: "left",
+        textAlign: "center",
         fontSize: 14,
         marginTop: 5,
         paddingHorizontal: 10,
-        paddingVertical: 5,
+        paddingVertical: 10,
+        marginHorizontal: 10,
     },
     inputWrapper: {
         marginHorizontal: 20,
