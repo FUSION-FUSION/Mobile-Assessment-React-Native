@@ -1,5 +1,6 @@
 import { View, Text, ImageBackground, Pressable } from "react-native";
 import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 const UserSelectionScreen = ({ navigation }) => {
     return (
@@ -12,6 +13,7 @@ const UserSelectionScreen = ({ navigation }) => {
                     backgroundColor: "#dbe4e9",
                 }}
             >
+                <LinearGradient colors={["#dbe4e9", "#f0f0f3"]} />
                 <View style={{ paddingTop: 80, width: "60%", marginLeft: 20 }}>
                     <Text
                         style={{
@@ -80,6 +82,7 @@ const UserSelectionScreen = ({ navigation }) => {
                         </Text>
                     </Pressable>
                 </View>
+                {/* </LinearGradient> */}
             </ImageBackground>
         </View>
     );
