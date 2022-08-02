@@ -34,7 +34,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Full Name</Text>
+                        <Text style={{ fontSize: 15 }}>Full Name</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setName(value)}
@@ -43,7 +43,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Your E-mail</Text>
+                        <Text style={{ fontSize: 15 }}>Your E-mail</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setEmail(value)}
@@ -52,7 +52,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Phone Number</Text>
+                        <Text style={{ fontSize: 15 }}>Phone Number</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setNumber(value)}
@@ -62,7 +62,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Password</Text>
+                        <Text style={{ fontSize: 15 }}>Password</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setPassword(value)}
@@ -71,7 +71,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Confirm Password</Text>
+                        <Text style={{ fontSize: 15 }}>Confirm Password</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setConfirm(value)}

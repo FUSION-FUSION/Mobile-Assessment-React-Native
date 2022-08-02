@@ -26,12 +26,14 @@ const LoginScreen = ({ navigation }) => {
                     <View style={styles.container}>
                         <Text style={styles.text}>Welcome!</Text>
                         <Text style={styles.smallerText}>
-                            Create an account to get started with Cargo Express
+                            Sign in to continue to Cargo Express
                         </Text>
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Your E-mail</Text>
+                        <Text style={{ fontSize: 15 }}>
+                            Phone Number / E-mail
+                        </Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setEmail(value)}
@@ -40,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
                     </View>
 
                     <View style={styles.inputWrapper}>
-                        <Text>Password</Text>
+                        <Text style={{ fontSize: 15 }}>Password</Text>
                         <TextInput
                             style={styles.input}
                             onChangeText={(value) => setPassword(value)}
@@ -49,37 +51,22 @@ const LoginScreen = ({ navigation }) => {
                     </View>
 
                     <Text
-                        style={{
-                            textAlign: "center",
-                            paddingTop: 20,
-                            color: "#46a5ba",
-                        }}
+                        style={styles.createText}
+                        onPress={() => navigation.navigate("SignUpScreen")}
                     >
                         Create an account?
                     </Text>
 
                     <View
                         style={{
-                            flexDirection: "row",
-                            marginHorizontal: 10,
-                            justifyContent: "space-between",
-                            paddingTop: 30,
+                            paddingTop: 50,
                         }}
                     >
                         <Pressable
-                            style={styles.btn1}
-                            onPress={() => navigation.goBack()}
-                        >
-                            <Text style={styles.btnText1}>Back</Text>
-                        </Pressable>
-
-                        <Pressable
                             style={styles.btn2}
-                            onPress={() =>
-                                navigation.navigate("VerificationScreen")
-                            }
+                            onPress={() => navigation.navigate("HomeScreen")}
                         >
-                            <Text style={styles.btnText2}>Next</Text>
+                            <Text style={styles.btnText2}>Sign In</Text>
                         </Pressable>
                     </View>
                 </ImageBackground>
@@ -125,18 +112,11 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
     btn2: {
+        paddingHorizontal: 25,
+        paddingVertical: 15,
+        borderRadius: 12,
         backgroundColor: "#46a5ba",
-        paddingVertical: 15,
-        borderRadius: 15,
-        marginHorizontal: 20,
-        width: "30%",
-    },
-    btn1: {
-        backgroundColor: "#fff",
-        paddingVertical: 15,
-        borderRadius: 15,
-        marginHorizontal: 20,
-        width: "30%",
+        marginHorizontal: 100,
     },
     btnText2: {
         textAlign: "center",
@@ -144,11 +124,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "900",
     },
-    btnText1: {
+    createText: {
         textAlign: "center",
-        fontSize: 20,
-        fontWeight: "900",
-        color: "#737373",
+        paddingTop: 20,
+        color: "#46a5ba",
+        fontWeight: "700",
+        fontSize: 16,
     },
 });
 
