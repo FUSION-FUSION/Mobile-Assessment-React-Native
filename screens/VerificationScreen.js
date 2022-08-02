@@ -16,6 +16,7 @@ const VerificationScreen = ({ navigation }) => {
     useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     }, [counter]);
+
     const handleTimer = () => {
         counter !== "Code Expired" && setTimeout(() => setCounter(5 - 1), 1000);
     };
@@ -27,7 +28,9 @@ const VerificationScreen = ({ navigation }) => {
                     style={styles.background}
                 >
                     <View style={styles.headerText}>
-                        <Text style={{ fontSize: 24 }}>Verification!</Text>
+                        <Text style={{ fontSize: 24, paddingBottom: 5 }}>
+                            Verification!
+                        </Text>
                         <Text>
                             We sent you an SMS code on number{" "}
                             <Text
@@ -87,8 +90,9 @@ const styles = StyleSheet.create({
     },
     headerText: {
         width: "50%",
-        paddingTop: 100,
+        paddingTop: "30%",
         marginHorizontal: 15,
+        paddingBottom: 10,
     },
     input: {
         borderColor: "#555555",
