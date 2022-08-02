@@ -15,10 +15,7 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = useState("");
     return (
         <View style={styles.wrapper}>
-            <LinearGradient
-                colors={["#dbe4e9", "#f0f0f3"]}
-                // style={{ flex: 1 }}
-            >
+            <LinearGradient colors={["#dbe4e9", "#f0f0f3"]}>
                 <ImageBackground
                     source={require("../assets/Shipify-Assets/bg-app-cloud.png")}
                     style={styles.background}

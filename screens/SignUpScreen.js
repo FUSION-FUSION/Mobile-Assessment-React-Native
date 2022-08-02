@@ -11,11 +11,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 
 const SignUpScreen = ({ navigation }) => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [number, setNumber] = useState("+234");
-    const [password, setPassword] = useState("");
-    const [confirm, setConfirm] = useState("");
     return (
         <View style={styles.wrapper}>
             <LinearGradient
@@ -35,48 +30,27 @@ const SignUpScreen = ({ navigation }) => {
 
                     <View style={styles.inputWrapper}>
                         <Text style={{ fontSize: 15 }}>Full Name</Text>
-                        <TextInput
-                            style={styles.input}
-                            onChangeText={(value) => setName(value)}
-                            value={name}
-                        />
+                        <TextInput style={styles.input} />
                     </View>
 
                     <View style={styles.inputWrapper}>
                         <Text style={{ fontSize: 15 }}>Your E-mail</Text>
-                        <TextInput
-                            style={styles.input}
-                            onChangeText={(value) => setEmail(value)}
-                            value={email}
-                        />
+                        <TextInput style={styles.input} />
                     </View>
 
                     <View style={styles.inputWrapper}>
                         <Text style={{ fontSize: 15 }}>Phone Number</Text>
-                        <TextInput
-                            style={styles.input}
-                            onChangeText={(value) => setNumber(value)}
-                            value={number}
-                            keyboardType="numeric"
-                        />
+                        <TextInput style={styles.input} />
                     </View>
 
                     <View style={styles.inputWrapper}>
                         <Text style={{ fontSize: 15 }}>Password</Text>
-                        <TextInput
-                            style={styles.input}
-                            onChangeText={(value) => setPassword(value)}
-                            value={password}
-                        />
+                        <TextInput style={styles.input} />
                     </View>
 
                     <View style={styles.inputWrapper}>
                         <Text style={{ fontSize: 15 }}>Confirm Password</Text>
-                        <TextInput
-                            style={styles.input}
-                            onChangeText={(value) => setConfirm(value)}
-                            value={confirm}
-                        />
+                        <TextInput style={styles.input} />
                     </View>
 
                     <Text style={{ textAlign: "center", paddingTop: 20 }}>
