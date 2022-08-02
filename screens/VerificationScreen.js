@@ -11,16 +11,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { useEffect } from "react";
 const VerificationScreen = () => {
-    const [counter, setCounter] = useState(60);
-    // const [newCounter, setNewCounter] = useState(9);
+    const [counter, setCounter] = useState(5);
 
     useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     }, [counter]);
     const handleTimer = () => {
-        clearTimeout(counter);
-        let counter = 60;
-        setTimeout(() => setCounter(counter - 1), 1000);
+        counter !== "Code Expired" && setTimeout(() => setCounter(5 - 1), 1000);
     };
     return (
         <View style={{ flex: 1 }}>
@@ -74,7 +71,33 @@ const VerificationScreen = () => {
                     >
                         {counter === 0 ? "Code Expired" : counter}
                     </Text>
-                    <Text onPress={() => handleTimer()}>Resend Code</Text>
+
+                    {counter === 0 ? (
+                        <Text
+                            onPress={() => handleTimer()}
+                            style={{
+                                textAlign: "center",
+                                marginTop: 10,
+                                color: "#2b2c2c",
+                                fontSize: 20,
+                                fontWeight: "700",
+                            }}
+                        >
+                            Resend Code
+                        </Text>
+                    ) : (
+                        <Text
+                            style={{
+                                textAlign: "center",
+                                marginTop: 10,
+                                color: "#2b2c2c",
+                                fontSize: 20,
+                                fontWeight: "700",
+                            }}
+                        >
+                            Resends Code
+                        </Text>
+                    )}
                 </ImageBackground>
             </LinearGradient>
         </View>
