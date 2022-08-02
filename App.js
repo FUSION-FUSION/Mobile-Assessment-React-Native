@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CreateAnAccountScreen from './src/screens/CreateAnAccountScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import Splash from './src/screens/Splash';
+import UserScreen from './src/screens/UserScreen';
 
 
 export default function App() {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
