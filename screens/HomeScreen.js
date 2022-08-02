@@ -1,5 +1,6 @@
 import { View, Text, Image, TextInput, StyleSheet } from "react-native";
 import React from "react";
+import Card from "../components/Card";
 
 const HomeScreen = () => {
     return (
@@ -40,11 +41,12 @@ const HomeScreen = () => {
                     backgroundColor: "#ffffff",
                     paddingVertical: 13,
                     paddingHorizontal: 10,
+                    borderRadius: 15,
                 }}
             >
                 <View>
                     <Text>Total Balance</Text>
-                    <Text># 50 000</Text>
+                    <Text style={{ fontWeight: "800" }}># 50 000</Text>
                 </View>
 
                 <View style={{ position: "relative" }}>
@@ -87,19 +89,33 @@ const HomeScreen = () => {
                     backgroundColor: "#ffffff",
                     marginHorizontal: 20,
                     paddingVertical: 30,
+                    borderRadius: 15,
                 }}
             >
-                <Text style={{ textAlign: "center" }}>Track your waybill</Text>
+                <Text
+                    style={{
+                        textAlign: "center",
+                        fontWeight: "800",
+                        fontSize: 16,
+                    }}
+                >
+                    Track your waybill
+                </Text>
                 <View style={styles.input}>
-                    <Image
-                        source={require("../assets/Shipify-Assets/ic-search.png")}
-                        style={{
-                            width: 12,
-                            height: 12,
-                        }}
-                    />
+                    <View
+                        style={{ flexDirection: "row", alignItems: "center" }}
+                    >
+                        <Image
+                            source={require("../assets/Shipify-Assets/ic-search.png")}
+                            style={{
+                                width: 12,
+                                height: 12,
+                                marginRight: 3,
+                            }}
+                        />
 
-                    <TextInput placeholder="Waybill Number" />
+                        <TextInput placeholder="Waybill Number" />
+                    </View>
 
                     <View
                         style={{
@@ -114,6 +130,10 @@ const HomeScreen = () => {
                     </View>
                 </View>
             </View>
+
+            <Text>Send a Package</Text>
+
+            <Card />
         </View>
     );
 };
@@ -122,7 +142,7 @@ const styles = StyleSheet.create({
     input: {
         width: "80%",
         borderColor: "#46a5ba",
-        borderRadius: 12,
+        borderRadius: 15,
         backgroundColor: "#ffffff",
         textAlign: "left",
         fontSize: 14,
