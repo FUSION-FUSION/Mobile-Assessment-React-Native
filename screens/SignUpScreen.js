@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     background: {
         width: "100%",
         height: 300,
-        // backgroundColor: "#dbe4e9",
     },
     container: {
         paddingTop: 100,
