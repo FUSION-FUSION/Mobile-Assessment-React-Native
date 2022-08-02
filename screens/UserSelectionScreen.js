@@ -12,7 +12,7 @@ const UserSelectionScreen = ({ navigation }) => {
                     backgroundColor: "#dbe4e9",
                 }}
             >
-                <View style={{ paddingTop: 80, width: "80%", marginLeft: 20 }}>
+                <View style={{ paddingTop: 80, width: "60%", marginLeft: 20 }}>
                     <Text
                         style={{
                             fontSize: 25,
@@ -24,7 +24,7 @@ const UserSelectionScreen = ({ navigation }) => {
                     </Text>
                     <Text
                         style={{
-                            fontSize: 20,
+                            fontSize: 16,
                         }}
                     >
                         We will adapt the app to suit your needs.
