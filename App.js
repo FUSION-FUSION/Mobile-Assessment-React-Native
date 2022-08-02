@@ -4,15 +4,14 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Splash from "./src/components/Splash";
+import "react-native-gesture-handler";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   useEffect(() => {
     async function prepare() {
       try {
-        // keep splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
-        // Pre-load fonts, make any api calls here
         await Font.loadAsync({
           bold: require("./assets/fonts/bold.ttf"),
           light: require("./assets/fonts/light.ttf"),
@@ -20,13 +19,9 @@ export default function App() {
           regular: require("./assets/fonts/regular.ttf"),
         });
         await new Promise((resolve) => setTimeout(resolve, 5000));
-        // Artificially delay for two seconds to simulate a slow loading
-        // experience. Please remove this if you copy and paste the code!
-        // await new Promise(resolve => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
-        // Tell app to render
         setAppIsReady(true);
       }
     }

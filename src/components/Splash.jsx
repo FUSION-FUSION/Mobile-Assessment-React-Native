@@ -1,6 +1,6 @@
 import { Image, View } from "react-native";
 
-const SplashScreen = () => {
+const Splash = () => {
   return (
     <View
       style={{
@@ -15,4 +15,4 @@ const SplashScreen = () => {
   );
 };
 
-export default SplashScreen;
+export default Splash;
