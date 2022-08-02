@@ -5,11 +5,12 @@ import {
     TextInput,
     StyleSheet,
     ScrollView,
+    Pressable,
 } from "react-native";
 import React from "react";
 import Data from "../components/Data";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
         <ScrollView style={styles.wrapper}>
             <View style={styles.header}>
@@ -59,9 +60,12 @@ const HomeScreen = () => {
                         <TextInput placeholder="Waybill Number" />
                     </View>
 
-                    <View style={styles.trackBtn}>
+                    <Pressable
+                        style={styles.trackBtn}
+                        onPress={() => navigation.navigate("LocationScreen")}
+                    >
                         <Text style={{ color: "#ffffff" }}>Track</Text>
-                    </View>
+                    </Pressable>
                 </View>
             </View>
 
@@ -74,52 +78,23 @@ const HomeScreen = () => {
                 <Data />
             </View>
 
-            <View
-                style={{
-                    flexDirection: "row",
-                    marginLeft: 20,
-                    paddingBottom: 150,
-                }}
-            >
-                <View
-                    style={{
-                        backgroundColor: "#ffffff",
-                        height: 100,
-                        paddingTop: 10,
-                        marginRight: 15,
-                        marginBottom: 25,
-                        width: "45%",
-                    }}
-                >
-                    <Text style={{ marginLeft: 10 }}>Waybill History</Text>
+            <View style={styles.bottomWrapper}>
+                <View style={styles.card}>
                     <Text
                         style={{
-                            borderWidth: 2,
-                            borderBottomWidth: 0,
-                            borderRightWidth: 0,
-                            borderLeftWidth: 0,
-                            borderColor: "#46a5ba",
-                            width: "10%",
-                            height: "7%",
-                            marginTop: 2,
                             marginLeft: 10,
+                            color: "#2d2d2d",
+                            fontWeight: "700",
                         }}
-                    ></Text>
-                    <Text style={{ marginLeft: 10 }}>
+                    >
+                        Waybill History
+                    </Text>
+                    <Text style={styles.underline}></Text>
+                    <Text style={{ marginLeft: 10, color: "#c6c6c7" }}>
                         Records all of your waybills
                     </Text>
 
-                    <View
-                        style={{
-                            position: "absolute",
-                            bottom: 5,
-                            right: 5,
-                            backgroundColor: "#000",
-                            paddingHorizontal: 3,
-                            borderRadius: 15,
-                            paddingVertical: 3,
-                        }}
-                    >
+                    <View style={styles.arrowBtn}>
                         <Image
                             source={require("../assets/Shipify-Assets/ic-right.png")}
                             style={{
@@ -130,45 +105,22 @@ const HomeScreen = () => {
                     </View>
                 </View>
 
-                <View
-                    style={{
-                        backgroundColor: "#ffffff",
-                        height: 100,
-                        paddingTop: 10,
-                        marginRight: 15,
-                        marginBottom: 25,
-                        width: "45%",
-                    }}
-                >
-                    <Text style={{ marginLeft: 10 }}>Waybill History</Text>
+                <View style={styles.card}>
                     <Text
                         style={{
-                            borderWidth: 2,
-                            borderBottomWidth: 0,
-                            borderRightWidth: 0,
-                            borderLeftWidth: 0,
-                            borderColor: "#46a5ba",
-                            width: "10%",
-                            height: "7%",
-                            marginTop: 2,
                             marginLeft: 10,
-                        }}
-                    ></Text>
-                    <Text style={{ marginLeft: 10 }}>
-                        Records all of your waybills
-                    </Text>
-
-                    <View
-                        style={{
-                            position: "absolute",
-                            bottom: 5,
-                            right: 5,
-                            backgroundColor: "#000",
-                            paddingHorizontal: 3,
-                            borderRadius: 15,
-                            paddingVertical: 3,
+                            color: "#2d2d2d",
+                            fontWeight: "700",
                         }}
                     >
+                        Get Help
+                    </Text>
+                    <Text style={styles.underline}></Text>
+                    <Text style={{ marginLeft: 10, color: "#c6c6c7" }}>
+                        Get help and support from our team
+                    </Text>
+
+                    <View style={styles.arrowBtn}>
                         <Image
                             source={require("../assets/Shipify-Assets/ic-right.png")}
                             style={{
@@ -263,6 +215,39 @@ const styles = StyleSheet.create({
         width: 12,
         height: 12,
         marginRight: 3,
+    },
+    bottomWrapper: {
+        flexDirection: "row",
+        marginLeft: 20,
+        paddingBottom: 150,
+    },
+    card: {
+        backgroundColor: "#ffffff",
+        height: 100,
+        paddingTop: 10,
+        marginRight: 15,
+        marginBottom: 25,
+        width: "45%",
+    },
+    underline: {
+        borderWidth: 2,
+        borderBottomWidth: 0,
+        borderRightWidth: 0,
+        borderLeftWidth: 0,
+        borderColor: "#46a5ba",
+        width: "10%",
+        height: "7%",
+        marginTop: 2,
+        marginLeft: 10,
+    },
+    arrowBtn: {
+        position: "absolute",
+        bottom: 5,
+        right: 5,
+        backgroundColor: "#000",
+        paddingHorizontal: 3,
+        borderRadius: 15,
+        paddingVertical: 3,
     },
 });
 export default HomeScreen;

@@ -48,7 +48,6 @@ const Data = () => {
                                     backgroundColor: "#ffffff",
                                     height: 150,
                                     paddingTop: 10,
-                                    // marginRight: 15,
                                     marginBottom: 25,
                                     width: "90%",
                                 }}
@@ -61,7 +60,13 @@ const Data = () => {
                                 ) : (
                                     <Text></Text>
                                 )}
-                                <Text style={{ marginLeft: 10 }}>
+                                <Text
+                                    style={{
+                                        marginLeft: 10,
+                                        color: "#2d2d2d",
+                                        fontWeight: "700",
+                                    }}
+                                >
                                     {item.state}
                                 </Text>
                                 <Text
