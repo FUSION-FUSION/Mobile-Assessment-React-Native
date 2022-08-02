@@ -4,13 +4,13 @@ import {
     ImageBackground,
     StyleSheet,
     TextInput,
+    Image,
+    Pressable,
 } from "react-native";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
-import { useEffect } from "react";
-const VerificationScreen = () => {
+
+const VerificationScreen = ({ navigation }) => {
     const [counter, setCounter] = useState(5);
 
     useEffect(() => {
@@ -26,13 +26,7 @@ const VerificationScreen = () => {
                     source={require("../assets/Shipify-Assets/bg-app-cloud.png")}
                     style={styles.background}
                 >
-                    <View
-                        style={{
-                            width: "50%",
-                            paddingTop: 100,
-                            marginHorizontal: 15,
-                        }}
-                    >
+                    <View style={styles.headerText}>
                         <Text style={{ fontSize: 24 }}>Verification!</Text>
                         <Text>
                             We sent you an SMS code on number{" "}
@@ -44,13 +38,7 @@ const VerificationScreen = () => {
                         </Text>
                     </View>
 
-                    <View
-                        style={{
-                            flexDirection: "row",
-                            marginHorizontal: 5,
-                            paddingTop: 10,
-                        }}
-                    >
+                    <View style={styles.inputWrapper}>
                         <TextInput style={styles.input} maxLength={1} />
 
                         <TextInput style={styles.input} maxLength={1} />
@@ -61,43 +49,35 @@ const VerificationScreen = () => {
 
                         <TextInput style={styles.input} maxLength={1} />
                     </View>
-                    <Text
-                        style={{
-                            color: "#fa2c2d",
-                            textAlign: "right",
-                            width: "82%",
-                            marginTop: 5,
-                        }}
-                    >
+                    <Text style={styles.counterText}>
                         {counter === 0 ? "Code Expired" : counter}
                     </Text>
 
                     {counter === 0 ? (
-                        <Text
-                            onPress={() => handleTimer()}
-                            style={{
-                                textAlign: "center",
-                                marginTop: 10,
-                                color: "#2b2c2c",
-                                fontSize: 20,
-                                fontWeight: "700",
-                            }}
-                        >
+                        <Text onPress={() => handleTimer()} style={styles.text}>
                             Resend Code
                         </Text>
                     ) : (
-                        <Text
-                            style={{
-                                textAlign: "center",
-                                marginTop: 10,
-                                color: "#2b2c2c",
-                                fontSize: 20,
-                                fontWeight: "700",
-                            }}
-                        >
-                            Resends Code
-                        </Text>
+                        <Text style={styles.text}>Resend Code</Text>
                     )}
+
+                    <Pressable
+                        style={{
+                            paddingHorizontal: 25,
+                            paddingVertical: 13,
+                            borderRadius: 30,
+                            backgroundColor: "#46a5ba",
+                            alignItems: "center",
+                            marginHorizontal: 160,
+                        }}
+                        onPress={() =>
+                            navigation.navigate("CongratVerifiedScreen")
+                        }
+                    >
+                        <Image
+                            source={require("../assets/Shipify-Assets/ic-right.png")}
+                        />
+                    </Pressable>
                 </ImageBackground>
             </LinearGradient>
         </View>
@@ -112,18 +92,10 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 300,
     },
-    container: {
+    headerText: {
+        width: "50%",
         paddingTop: 100,
-        width: "60%",
-        marginLeft: 20,
-    },
-    text: {
-        fontSize: 25,
-        fontWeight: "900",
-        color: "black",
-    },
-    smallerText: {
-        fontSize: 15,
+        marginHorizontal: 15,
     },
     input: {
         borderColor: "#555555",
@@ -137,34 +109,23 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     inputWrapper: {
-        marginHorizontal: 20,
-        paddingTop: 20,
+        flexDirection: "row",
+        marginHorizontal: 10,
+        paddingTop: 10,
     },
-    btn2: {
-        backgroundColor: "#46a5ba",
-        paddingVertical: 15,
-        borderRadius: 15,
-        marginHorizontal: 20,
-        width: "30%",
-    },
-    btn1: {
-        backgroundColor: "#fff",
-        paddingVertical: 15,
-        borderRadius: 15,
-        marginHorizontal: 20,
-        width: "30%",
-    },
-    btnText2: {
+    text: {
         textAlign: "center",
-        color: "#FFFFFF",
+        marginTop: 10,
+        color: "#2b2c2c",
         fontSize: 20,
-        fontWeight: "900",
+        fontWeight: "700",
+        paddingBottom: 20,
     },
-    btnText1: {
-        textAlign: "center",
-        fontSize: 20,
-        fontWeight: "900",
-        color: "#737373",
+    counterText: {
+        color: "#fa2c2d",
+        textAlign: "right",
+        width: "82%",
+        marginTop: 10,
     },
 });
 export default VerificationScreen;
