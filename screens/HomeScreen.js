@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TextInput, StyleSheet } from "react-native";
 import React from "react";
 
 const HomeScreen = () => {
@@ -16,6 +16,7 @@ const HomeScreen = () => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginHorizontal: 20,
+                    paddingBottom: 20,
                 }}
             >
                 <Image
@@ -55,7 +56,6 @@ const HomeScreen = () => {
                             paddingHorizontal: 8,
                             borderRadius: 15,
                             paddingVertical: 5,
-                            // marginTop: 15,
                             zIndex: 9999,
                             top: 8,
                         }}
@@ -80,8 +80,61 @@ const HomeScreen = () => {
                     />
                 </View>
             </View>
+
+            <View
+                style={{
+                    marginTop: 20,
+                    backgroundColor: "#ffffff",
+                    marginHorizontal: 20,
+                    paddingVertical: 30,
+                }}
+            >
+                <Text style={{ textAlign: "center" }}>Track your waybill</Text>
+                <View style={styles.input}>
+                    <Image
+                        source={require("../assets/Shipify-Assets/ic-search.png")}
+                        style={{
+                            width: 12,
+                            height: 12,
+                        }}
+                    />
+
+                    <TextInput placeholder="Waybill Number" />
+
+                    <View
+                        style={{
+                            backgroundColor: "#46a5ba",
+                            paddingVertical: 6,
+                            paddingHorizontal: 15,
+                            borderRadius: 10,
+                            paddingVertical: 8,
+                        }}
+                    >
+                        <Text style={{ color: "#ffffff" }}>Track</Text>
+                    </View>
+                </View>
+            </View>
         </View>
     );
 };
 
+const styles = StyleSheet.create({
+    input: {
+        width: "80%",
+        borderColor: "#46a5ba",
+        borderRadius: 12,
+        backgroundColor: "#ffffff",
+        textAlign: "left",
+        fontSize: 14,
+        marginTop: 10,
+        borderWidth: 1,
+        marginHorizontal: 30,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingVertical: 2,
+        paddingLeft: 10,
+        paddingRight: 2,
+    },
+});
 export default HomeScreen;
