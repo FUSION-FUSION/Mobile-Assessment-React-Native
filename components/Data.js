@@ -33,7 +33,7 @@ const Data = () => {
     return (
         <View
             style={{
-                marginHorizontal: 20,
+                marginLeft: 20,
                 paddingTop: 10,
             }}
         >
@@ -46,10 +46,11 @@ const Data = () => {
                             <View
                                 style={{
                                     backgroundColor: "#ffffff",
-                                    height: 200,
+                                    height: 150,
                                     paddingTop: 10,
-                                    marginRight: 15,
+                                    // marginRight: 15,
                                     marginBottom: 25,
+                                    width: "90%",
                                 }}
                             >
                                 {item.logo ? (
@@ -107,7 +108,7 @@ const Data = () => {
                                         <Image
                                             source={item.mode}
                                             style={{
-                                                width: "65%",
+                                                width: "45%",
                                                 height: "45%",
                                                 top: "-49%",
                                             }}
@@ -143,12 +144,11 @@ const Data = () => {
                                     <Text
                                         style={{
                                             backgroundColor: "#f8f8fa",
-                                            top: -80,
+                                            top: -60,
                                             textAlign: "center",
                                             borderRadius: 10,
                                             right: 0,
                                             marginLeft: 60,
-                                            zIndex: 9999,
                                             color: "black",
                                         }}
                                     >
