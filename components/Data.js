@@ -47,7 +47,7 @@ const Data = () => {
                                 {item.logo ? (
                                     <Image
                                         source={require("../assets/Shipify-Assets/ic-curve.png")}
-                                        style={{ width: "100%", height: "12%" }}
+                                        style={{ width: "100%", height: "13%" }}
                                     />
                                 ) : (
                                     <Text></Text>
