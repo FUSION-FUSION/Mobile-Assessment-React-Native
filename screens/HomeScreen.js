@@ -17,7 +17,9 @@ const HomeScreen = ({ navigation }) => {
                 <Image
                     source={require("../assets/Shipify-Assets/ic-menu.png")}
                 />
-                <Text>Hello, John.</Text>
+                <Text style={{ fontSize: 20, fontWeight: "900" }}>
+                    Hello, John.
+                </Text>
                 <Image
                     source={require("../assets/Shipify-Assets/ic-notification.png")}
                     style={{ width: 20, height: 20 }}
