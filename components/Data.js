@@ -43,15 +43,7 @@ const Data = () => {
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.wrapper(item.coming)}>
-                            <View
-                                style={{
-                                    backgroundColor: "#ffffff",
-                                    height: 150,
-                                    paddingTop: 10,
-                                    marginBottom: 25,
-                                    width: "90%",
-                                }}
-                            >
+                            <View style={styles.container}>
                                 {item.logo ? (
                                     <Image
                                         source={require("../assets/Shipify-Assets/ic-curve.png")}
@@ -60,53 +52,30 @@ const Data = () => {
                                 ) : (
                                     <Text></Text>
                                 )}
-                                <Text
-                                    style={{
-                                        marginLeft: 10,
-                                        color: "#2d2d2d",
-                                        fontWeight: "700",
-                                    }}
-                                >
-                                    {item.state}
-                                </Text>
-                                <Text
-                                    style={{
-                                        borderWidth: 2,
-                                        borderBottomWidth: 0,
-                                        borderRightWidth: 0,
-                                        borderLeftWidth: 0,
-                                        borderColor: "#46a5ba",
-                                        width: "10%",
-                                        height: "7%",
-                                        marginTop: 2,
-                                        marginLeft: 10,
-                                    }}
-                                ></Text>
+
+                                <Text style={styles.state}>{item.state}</Text>
+
+                                <Text style={styles.underline}></Text>
+
                                 <Text style={{ marginLeft: 10 }}>
                                     {item.location}
                                 </Text>
+
                                 <View style={{ width: "100%" }}>
                                     {item.road ? (
                                         <Image
                                             source={item.road}
-                                            style={{
-                                                width: "100%",
-                                                height: "55%",
-                                                top: 5,
-                                            }}
+                                            style={styles.road}
                                         />
                                     ) : (
                                         <Text></Text>
                                     )}
+
                                     {item.mode ===
                                     require("../assets/Shipify-Assets/ic-aeroplane.png") ? (
                                         <Image
                                             source={item.mode}
-                                            style={{
-                                                width: "80%",
-                                                height: "70%",
-                                                top: "-10%",
-                                            }}
+                                            style={styles.mode}
                                             resizeMode="cover"
                                         />
                                     ) : (
@@ -122,17 +91,7 @@ const Data = () => {
                                     )}
                                 </View>
 
-                                <View
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 5,
-                                        right: 5,
-                                        backgroundColor: "#ffffff",
-                                        paddingHorizontal: 3,
-                                        borderRadius: 15,
-                                        paddingVertical: 3,
-                                    }}
-                                >
+                                <View style={styles.coming}>
                                     {item.coming ? (
                                         <Text></Text>
                                     ) : (
@@ -145,18 +104,9 @@ const Data = () => {
                                         />
                                     )}
                                 </View>
+
                                 {item.coming && (
-                                    <Text
-                                        style={{
-                                            backgroundColor: "#f8f8fa",
-                                            top: -60,
-                                            textAlign: "center",
-                                            borderRadius: 10,
-                                            right: 0,
-                                            marginLeft: 60,
-                                            color: "black",
-                                        }}
-                                    >
+                                    <Text style={styles.opaque}>
                                         {item.coming}
                                     </Text>
                                 )}
@@ -174,5 +124,56 @@ const styles = StyleSheet.create({
         flex: 1,
         opacity: coming ? 0.4 : 1,
     }),
+    container: {
+        backgroundColor: "#ffffff",
+        height: 150,
+        paddingTop: 10,
+        marginBottom: 25,
+        width: "90%",
+    },
+    state: {
+        marginLeft: 10,
+        color: "#2d2d2d",
+        fontWeight: "700",
+    },
+    underline: {
+        borderWidth: 2,
+        borderBottomWidth: 0,
+        borderRightWidth: 0,
+        borderLeftWidth: 0,
+        borderColor: "#46a5ba",
+        width: "10%",
+        height: "7%",
+        marginTop: 2,
+        marginLeft: 10,
+    },
+    road: {
+        width: "100%",
+        height: "55%",
+        top: 5,
+    },
+    mode: {
+        width: "80%",
+        height: "70%",
+        top: "-10%",
+    },
+    coming: {
+        position: "absolute",
+        bottom: 5,
+        right: 5,
+        backgroundColor: "#ffffff",
+        paddingHorizontal: 3,
+        borderRadius: 15,
+        paddingVertical: 3,
+    },
+    opaque: {
+        backgroundColor: "#f8f8fa",
+        top: -60,
+        textAlign: "center",
+        borderRadius: 10,
+        right: 0,
+        marginLeft: 60,
+        color: "black",
+    },
 });
 export default Data;
