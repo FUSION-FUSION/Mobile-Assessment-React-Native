@@ -1,10 +1,17 @@
-import { View, Text, Image, TextInput, StyleSheet } from "react-native";
+import {
+    View,
+    Text,
+    Image,
+    TextInput,
+    StyleSheet,
+    ScrollView,
+} from "react-native";
 import React from "react";
-import Card from "../components/Card";
+import Data from "../components/Data";
 
 const HomeScreen = () => {
     return (
-        <View
+        <ScrollView
             style={{
                 flex: 1,
                 paddingTop: 50,
@@ -131,10 +138,15 @@ const HomeScreen = () => {
                 </View>
             </View>
 
-            <Text>Send a Package</Text>
-
-            <Card />
-        </View>
+            <View style={{ paddingTop: 20 }}>
+                <Text
+                    style={{ fontWeight: "800", fontSize: 20, marginLeft: 20 }}
+                >
+                    Send a Package
+                </Text>
+                <Data />
+            </View>
+        </ScrollView>
     );
 };
 
