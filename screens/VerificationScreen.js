@@ -62,14 +62,7 @@ const VerificationScreen = ({ navigation }) => {
                     )}
 
                     <Pressable
-                        style={{
-                            paddingHorizontal: 25,
-                            paddingVertical: 13,
-                            borderRadius: 30,
-                            backgroundColor: "#46a5ba",
-                            alignItems: "center",
-                            marginHorizontal: 160,
-                        }}
+                        style={styles.button}
                         onPress={() =>
                             navigation.navigate("CongratVerifiedScreen")
                         }
@@ -127,5 +120,14 @@ const styles = StyleSheet.create({
         width: "82%",
         marginTop: 10,
     },
+    button: {
+        paddingHorizontal: 25,
+        paddingVertical: 13,
+        borderRadius: 30,
+        backgroundColor: "#46a5ba",
+        alignItems: "center",
+        marginHorizontal: 160,
+    },
 });
+
 export default VerificationScreen;
