@@ -11,14 +11,15 @@ import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 const VerificationScreen = ({ navigation }) => {
-    const [counter, setCounter] = useState(5);
+    const [counter, setCounter] = useState(60);
 
     useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     }, [counter]);
 
     const handleTimer = () => {
-        counter !== "Code Expired" && setTimeout(() => setCounter(5 - 1), 1000);
+        counter !== "Code Expired" &&
+            setTimeout(() => setCounter(60 - 1), 1000);
     };
     return (
         <View style={{ flex: 1 }}>

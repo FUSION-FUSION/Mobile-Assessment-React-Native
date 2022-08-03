@@ -13,10 +13,7 @@ import { useState } from "react";
 const SignUpScreen = ({ navigation }) => {
     return (
         <View style={styles.wrapper}>
-            <LinearGradient
-                colors={["#dbe4e9", "#f0f0f3"]}
-                // style={{ flex: 1 }}
-            >
+            <LinearGradient colors={["#dbe4e9", "#f0f0f3"]}>
                 <ImageBackground
                     source={require("../assets/Shipify-Assets/bg-app-cloud.png")}
                     style={styles.background}
@@ -55,7 +52,10 @@ const SignUpScreen = ({ navigation }) => {
 
                     <Text style={{ textAlign: "center", paddingTop: 20 }}>
                         Already have an account?
-                        <Text style={{ color: "#46a5ba", fontWeight: "900" }}>
+                        <Text
+                            style={{ color: "#46a5ba", fontWeight: "900" }}
+                            onPress={() => navigation.navigate("LoginScreen")}
+                        >
                             {" "}
                             Log in
                         </Text>

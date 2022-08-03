@@ -10,7 +10,7 @@ import React from "react";
 
 import { LinearGradient } from "expo-linear-gradient";
 
-const CongratVerifiedScreen = () => {
+const CongratVerifiedScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1 }}>
             <LinearGradient colors={["#dbe4e8", "#f0f0f3"]} style={{ flex: 1 }}>
@@ -40,7 +40,10 @@ const CongratVerifiedScreen = () => {
                         />
                     </View>
 
-                    <Pressable style={styles.button}>
+                    <Pressable
+                        style={styles.button}
+                        onPress={() => navigation.navigate("HomeScreen")}
+                    >
                         <Text style={styles.btnText}>Continue</Text>
                     </Pressable>
                 </ImageBackground>
