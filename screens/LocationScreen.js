@@ -1,11 +1,4 @@
-import {
-    View,
-    Text,
-    Image,
-    ImageBackground,
-    Pressable,
-    ScrollView,
-} from "react-native";
+import { View, Text, Image, ImageBackground, Pressable } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import Line from "../components/Line";
@@ -25,6 +18,7 @@ const LocationScreen = ({ navigation }) => {
             setPadding("150%");
         }
     };
+
     return (
         <View style={{ flex: 1 }}>
             <ImageBackground
@@ -60,7 +54,7 @@ const LocationScreen = ({ navigation }) => {
                         style={{
                             backgroundColor: "#ffffff",
                             paddingHorizontal: 25,
-                            paddingVertical: 5,
+                            paddingVertical: 8,
                             borderRadius: 10,
                         }}
                     >
@@ -77,7 +71,6 @@ const LocationScreen = ({ navigation }) => {
                         paddingBottom: 20,
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
-                        // paddingBottom: "100%",
                         height: "90%",
                     }}
                     onPress={() => toggle()}
@@ -90,18 +83,15 @@ const LocationScreen = ({ navigation }) => {
                         }}
                     >
                         <Text></Text>
-                        <Pressable>
-                            <Image
-                                source={require("../assets/Shipify-Assets/line.png")}
-                                style={{ width: 50, marginLeft: 10 }}
-                            />
-                        </Pressable>
 
-                        <Pressable>
-                            <Image
-                                source={require("../assets/Shipify-Assets/sort.png")}
-                            />
-                        </Pressable>
+                        <Image
+                            source={require("../assets/Shipify-Assets/line.png")}
+                            style={{ width: 50, marginLeft: 10 }}
+                        />
+
+                        <Image
+                            source={require("../assets/Shipify-Assets/sort.png")}
+                        />
                     </View>
 
                     <View
