@@ -5,7 +5,7 @@ const SplashScreen = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
             navigation.replace("UserSelectionScreen");
-        }, 2500);
+        }, 3000);
     });
     return (
         <View style={styles.wrapper}>
