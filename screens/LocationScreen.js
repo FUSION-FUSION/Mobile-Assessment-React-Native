@@ -1,9 +1,30 @@
-import { View, Text, Image, ImageBackground, Pressable } from "react-native";
+import {
+    View,
+    Text,
+    Image,
+    ImageBackground,
+    Pressable,
+    ScrollView,
+} from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import Line from "../components/Line";
+import Details from "../components/Details";
+import UncheckedDetails from "../components/UncheckedDetails";
+import { useState } from "react";
 
-const LocationScreen = () => {
+const LocationScreen = ({ navigation }) => {
+    const [padding, setPadding] = useState("150%");
+
+    const toggle = () => {
+        if (padding === "150%") {
+            setPadding(0);
+        } else if (padding === 0) {
+            setPadding("70%");
+        } else {
+            setPadding("150%");
+        }
+    };
     return (
         <View style={{ flex: 1 }}>
             <ImageBackground
@@ -17,6 +38,7 @@ const LocationScreen = () => {
                         justifyContent: "space-between",
                         alignItems: "center",
                         paddingTop: 55,
+                        paddingBottom: padding,
                     }}
                 >
                     <Pressable
@@ -26,6 +48,7 @@ const LocationScreen = () => {
                             paddingVertical: 5,
                             borderRadius: 10,
                         }}
+                        onPress={() => navigation.goBack()}
                     >
                         <Image
                             source={require("../assets/Shipify-Assets/left.png")}
@@ -47,14 +70,17 @@ const LocationScreen = () => {
                     <Text style={{ marginLeft: 15 }}></Text>
                 </View>
 
-                <View
+                <Pressable
                     style={{
                         backgroundColor: "#ffffff",
                         paddingHorizontal: 18,
                         paddingBottom: 20,
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
+                        // paddingBottom: "100%",
+                        height: "90%",
                     }}
+                    onPress={() => toggle()}
                 >
                     <View
                         style={{
@@ -64,14 +90,18 @@ const LocationScreen = () => {
                         }}
                     >
                         <Text></Text>
-                        <Image
-                            source={require("../assets/Shipify-Assets/line.png")}
-                            style={{ width: 50 }}
-                        />
-                        <Image
-                            source={require("../assets/Shipify-Assets/sort.png")}
-                            style={{ marginRight: 10 }}
-                        />
+                        <Pressable>
+                            <Image
+                                source={require("../assets/Shipify-Assets/line.png")}
+                                style={{ width: 50, marginLeft: 10 }}
+                            />
+                        </Pressable>
+
+                        <Pressable>
+                            <Image
+                                source={require("../assets/Shipify-Assets/sort.png")}
+                            />
+                        </Pressable>
                     </View>
 
                     <View
@@ -157,65 +187,20 @@ const LocationScreen = () => {
                         </View>
                     </View>
 
-                    <View>
-                        <Text>Route Details</Text>
+                    <View style={{ paddingTop: 20 }}>
+                        <Text style={{ fontSize: 20, fontWeight: "800" }}>
+                            Route Details
+                        </Text>
 
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                justifyContent: "space-between",
-                            }}
-                        >
-                            <View style={{ flexDirection: "row" }}>
-                                <Image
-                                    source={require("../assets/Shipify-Assets/round2.png")}
-                                    style={{
-                                        backgroundColor: "#8ff0ea",
-                                        borderRadius: 10,
-                                        width: 18,
-                                        height: 18,
-                                        marginRight: 8,
-                                    }}
-                                />
-                                <View>
-                                    <Text>Delivered Successfully</Text>
-                                    <Text>Bishop's Court, Owerri.</Text>
-                                </View>
-                            </View>
-                            <Image
-                                source={require("../assets/Shipify-Assets/checkbox.png")}
-                            />
-                        </View>
+                        <Details />
 
-                        <View
-                            style={{
-                                flexDirection: "row",
-                                justifyContent: "space-between",
-                                paddingTop: 10,
-                            }}
-                        >
-                            <View style={{ flexDirection: "row" }}>
-                                <Image
-                                    source={require("../assets/Shipify-Assets/round2.png")}
-                                    style={{
-                                        backgroundColor: "#8ff0ea",
-                                        borderRadius: 10,
-                                        width: 18,
-                                        height: 18,
-                                        marginRight: 8,
-                                    }}
-                                />
-                                <View>
-                                    <Text>Delivered Successfully</Text>
-                                    <Text>Bishop's Court, Owerri.</Text>
-                                </View>
-                            </View>
-                            <Image
-                                source={require("../assets/Shipify-Assets/checkbox.png")}
-                            />
-                        </View>
+                        <Details />
+
+                        <UncheckedDetails />
+
+                        <UncheckedDetails />
                     </View>
-                </View>
+                </Pressable>
             </ImageBackground>
         </View>
     );
