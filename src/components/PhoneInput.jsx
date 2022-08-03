@@ -1,13 +1,12 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { scale } from "react-native-size-matters";
+import { AntDesign } from "@expo/vector-icons";
 
 const PhoneInput = () => {
   return (
     <View
       style={{
         marginVertical: 10,
-        width: "95%",
-        marginHorizontal: 20,
       }}
     >
       <Text style={{ fontFamily: "medium", fontSize: scale(12) }}>
@@ -27,12 +26,18 @@ const PhoneInput = () => {
         <TouchableOpacity
           style={{
             borderRadius: 20,
-            borderColor: 1,
-            borderColor: "rgba(31,31,31)",
-            padding: 9,
+            borderRightWidth: 0.5,
+            borderRightColor: "rgba(31,31,31)",
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#fff",
+            elevation: 0,
+            paddingVertical: 5,
+            paddingRight: 10,
           }}
         >
-          <Text style={{ fontFamily: "light", letterSpacing: 1 }}>+234</Text>
+          <Text style={{ fontFamily: "light", marginRight: 5 }}>+234</Text>
+          <AntDesign name="caretdown" size={11} color="black" />
         </TouchableOpacity>
         <TextInput />
       </View>

@@ -14,9 +14,7 @@ const ShipButton = ({ children, style, textStyle, onPress, title }) => {
       }}
       activeOpacity={0.7}
     >
-      <Text style={{ color: "#fff", paddingVertical: 50, ...textStyle }}>
-        {title}
-      </Text>
+      <Text style={{ color: "#fff", ...textStyle }}>{title}</Text>
     </TouchableOpacity>
   );
 };

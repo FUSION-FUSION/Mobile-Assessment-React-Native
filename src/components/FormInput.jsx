@@ -6,8 +6,6 @@ const FormInput = ({ label }) => {
     <View
       style={{
         marginVertical: 10,
-        width: "95%",
-        marginHorizontal: 20,
       }}
     >
       <Text style={{ fontFamily: "medium", fontSize: scale(12) }}>{label}</Text>

@@ -8,7 +8,7 @@ const SplashScreen = () => {
   const { navigate } = useNavigation();
   return (
     <BackGround>
-      <ScrollView
+      <View
         style={{
           width: "90%",
           marginTop: scale(80),
@@ -40,7 +40,7 @@ const SplashScreen = () => {
           We will adapt the app to suit your needs.
         </Text>
 
-        <View style={{ marginTop: scale(20) }}>
+        <View style={{ height: "100%" }}>
           <ShipButton
             onPress={() => navigate("register")}
             title="Personal"
@@ -48,7 +48,7 @@ const SplashScreen = () => {
             textStyle={{
               fontSize: scale(25),
               fontFamily: "bold",
-              paddingVertical: 30,
+              paddingVertical: scale(30),
             }}
           />
 
@@ -59,11 +59,11 @@ const SplashScreen = () => {
             textStyle={{
               fontSize: scale(25),
               fontFamily: "bold",
-              paddingVertical: 30,
+              paddingVertical: scale(30),
             }}
           />
         </View>
-      </ScrollView>
+      </View>
     </BackGround>
   );
 };
