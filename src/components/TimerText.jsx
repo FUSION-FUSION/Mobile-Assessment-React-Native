@@ -31,7 +31,7 @@ const Timertext = () => {
           marginTop: 5,
         }}
       >
-        {seconds >= 0 ? `${minutes}:${seconds}` : "Expired"}{" "}
+        {seconds >= 0 ? `${minutes}:${seconds}` : "Code Expired"}{" "}
       </Text>
     </View>
   );

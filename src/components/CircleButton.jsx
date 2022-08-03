@@ -3,6 +3,7 @@ import { TouchableOpacity, Image } from "react-native";
 const CircleButton = ({ onPress, style }) => {
   return (
     <TouchableOpacity
+      activeOpacity={0.7}
       onPress={onPress}
       style={{
         backgroundColor: "#46A5BA",

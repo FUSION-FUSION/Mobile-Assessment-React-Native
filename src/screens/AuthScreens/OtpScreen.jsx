@@ -1,4 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useRef } from "react";
 import BackGround from "../../components/BackGround";
 import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
@@ -19,7 +20,7 @@ const OtpScreen = () => {
     pin5: "",
     pin6: "",
   });
-
+  const { navigate } = useNavigation();
   return (
     <BackGround>
       <View
@@ -198,6 +199,9 @@ const OtpScreen = () => {
         </TouchableOpacity>
 
         <CircleButton
+          onPress={() => {
+            navigate("congrats");
+          }}
           style={{ alignSelf: "center", marginTop: verticalScale(30) }}
         />
       </View>
