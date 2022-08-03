@@ -1,8 +1,9 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useState, useRef } from "react";
 import BackGround from "../../components/BackGround";
-import { scale, ScaledSheet } from "react-native-size-matters";
+import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
 import Timertext from "../../components/TimerText";
+import CircleButton from "../../components/CircleButton";
 const OtpScreen = () => {
   const pin1Ref = useRef(null);
   const pin2Ref = useRef(null);
@@ -184,9 +185,21 @@ const OtpScreen = () => {
           <Timertext />
         </View>
 
-        <Text style={{ textAlign: "center", fontWeight: "bold" }}>
-          Resend Code
-        </Text>
+        <TouchableOpacity>
+          <Text
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: scale(14),
+            }}
+          >
+            Resend Code
+          </Text>
+        </TouchableOpacity>
+
+        <CircleButton
+          style={{ alignSelf: "center", marginTop: verticalScale(30) }}
+        />
       </View>
     </BackGround>
   );
