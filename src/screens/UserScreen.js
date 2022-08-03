@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20
     },
     othertext: {
-        fontSize: 20,
+        fontSize: 18,
         lineHeight: 26.3,
         color: '#484848',
         fontWeight: "300",
