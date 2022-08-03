@@ -57,7 +57,7 @@ const RegisterScreen = () => {
             <Text style={{ fontFamily: "light" }}>
               Already have an account?
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate("login")}>
               <Text
                 style={{ marginLeft: 5, fontFamily: "light", color: "#46A5BA" }}
               >

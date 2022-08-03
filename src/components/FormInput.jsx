@@ -13,8 +13,8 @@ const FormInput = ({ label }) => {
         style={{
           backgroundColor: "#FDFEFF",
           padding: scale(11),
-          paddingVertical: 7,
-          borderRadius: 20,
+          paddingVertical: 9,
+          borderRadius: 19,
           marginTop: 3,
         }}
       />
