@@ -2,7 +2,9 @@ import BackGround from "../../components/BackGround";
 import { View, Text, Image } from "react-native";
 import ShipButton from "../../components/ShipButton";
 import { scale } from "react-native-size-matters";
+import { useNavigation } from "@react-navigation/native";
 const CongratScreen = () => {
+  const { navigate } = useNavigation();
   return (
     <BackGround>
       <View
@@ -45,6 +47,7 @@ const CongratScreen = () => {
         </View>
 
         <ShipButton
+          onPress={() => navigate("home")}
           title="Continue"
           style={{
             width: 154,
