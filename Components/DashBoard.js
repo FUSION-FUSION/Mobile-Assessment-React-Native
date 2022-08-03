@@ -1,19 +1,12 @@
 import React from 'react'
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, Image, TextInput, ScrollView, FlatList } from 'react-native'
 import { GlobalStyle } from './GlobalStyle';
 import { AntDesign } from '@expo/vector-icons'; 
 
-const images= [
-    {title: 'same state', description: 'deliveries within the same state', img: '../assets/ic-bike.png', key: '1'},
-    {title: 'Inter state', description: '', img: '', key: '2'},
-    {title: '', description: '', img: '', key: '3'},
-    {title: '', description: '', img: '', key: '4'},
-    {title: '', description: '', img: '', key: '5'},
-    {title: '', description: '', img: '', key: '6'},
-    {title: '', description: '', img: '', key: '7'},
-    {title: '', description: '', img: '', key: '8'}
-
-]
+  const data=[
+    {title: 'Waybill History', description: 'Records of all your waybills',  key: '5'},
+    {title: '', description: 'Get help & support from our team',  key: '6'},
+  ] 
 
 const DashBoard = () => {
   return (
@@ -39,21 +32,37 @@ const DashBoard = () => {
         </TouchableOpacity>
         </View>
       </View>
-      <View>
-        <Text>Send a package</Text>
+      <View style={styles.imagesWrapper}>
+        <Text style={GlobalStyle.header}>Send a package</Text>
+
         <ScrollView>
-        <View>
-        {images.map((item)=>{
-          const {title, img, description, key} = item;
-          return(
-            <View key={key}>
-              <Text>{title}</Text>
-            </View>
-          )
-        })}
+        <View style={styles.imagesView}>
+        
+          <View style={styles.imagesContainer}>
+            <Text>same state</Text>
+          <Text>deliveries within the same state</Text>
+          <Image source={require('../assets/ic-bike.png')} style={{height: '3rem', width: '3rem'}}/>
+        </View>
+        <View style={styles.imagesContainer}>
+            <Text >Inter state</Text>
+          <Text>deliveries outside your current state</Text>
+          <Image source={require('../assets/DeliveryVan.png')} style={{height: '3rem', width: '3rem'}}/>
+        </View>
+        <View style={styles.imagesContainer}>
+            <Text>Charter</Text>
+          <Text>Request a vehicle</Text>
+          <Image source={require('../assets/ic-truck.png')} style={{height: '3rem', width: '3rem'}}/>
+        </View>
+        <View style={styles.imagesContainer}>
+            <Text>International</Text>
+          <Text>send packages to other countries</Text>
+          <Image source={require('../assets/ic-aeroplane.png')} style={{height: '3rem', width: '3rem'}}/>
+        </View>
+          
+       
 
 </View>
-        </ScrollView>
+</ScrollView>
       </View>
       
     </ImageBackground>
@@ -116,6 +125,10 @@ const styles= StyleSheet.create({
       paddingHorizontal: 10,
 
     },
+    imagesView:{
+      flex: 1,
+      flexDirection: 'row'
+    },
     track:{
       color: '#ffff',
     },
@@ -130,6 +143,20 @@ const styles= StyleSheet.create({
         alignSelf: 'flex-end',
         marginTop:2,
         marginRight:4,
+    },
+    imagesContainer:{
+      marginTop: 20,
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      width: '10rem',
+      padding: 10,
+      marginHorizontal: 5
+
+    },
+    imagesWrapper:{
+      flex: 1,
+      marginTop: 20,
+      
       
     }
 })
