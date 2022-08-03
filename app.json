@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Mobile-Assessment-React-Native",
-    "slug": "Mobile-Assessment-React-Native",
+    "name": "Shipify",
+    "slug": "Shipify",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
