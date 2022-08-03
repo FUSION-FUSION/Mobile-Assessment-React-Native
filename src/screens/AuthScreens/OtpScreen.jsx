@@ -2,6 +2,7 @@ import { View, Text, TextInput } from "react-native";
 import React, { useState, useRef } from "react";
 import BackGround from "../../components/BackGround";
 import { scale, ScaledSheet } from "react-native-size-matters";
+import Timertext from "../../components/TimerText";
 const OtpScreen = () => {
   const pin1Ref = useRef(null);
   const pin2Ref = useRef(null);
@@ -172,31 +173,20 @@ const OtpScreen = () => {
               }
             }}
           />
-          <TextInput
-            ref={pin6Ref}
-            style={styles.input}
-            maxLength={1}
-            keyboardType="number-pad"
-            onFocus={() => {
-              if (pin.pin4 == "") {
-                pin4Ref.current.focus();
-              }
-            }}
-            onChangeText={(val) => {
-              setPin({ ...pin, pin5: val });
-              if (pin.pin5 != "") {
-                pin5Ref.current.focus();
-              } else if (pin.pin6 == "") {
-                navigate("reset");
-              }
-            }}
-            onKeyPress={({ nativeEvent }) => {
-              if (nativeEvent.key === "Backspace") {
-                pin4Ref.current.focus();
-              }
-            }}
-          />
         </View>
+        <View
+          style={{
+            justifyContent: "flex-end",
+            flexDirection: "row",
+            marginVertical: 10,
+          }}
+        >
+          <Timertext />
+        </View>
+
+        <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+          Resend Code
+        </Text>
       </View>
     </BackGround>
   );
@@ -213,7 +203,7 @@ const styles = ScaledSheet.create({
     marginHorizontal: 10,
     backgroundColor: "#FDFEFF",
     paddingVertical: 15,
-    paddingHorizontal: 12,
+    paddingHorizontal: 15,
   },
 });
 export default OtpScreen;
