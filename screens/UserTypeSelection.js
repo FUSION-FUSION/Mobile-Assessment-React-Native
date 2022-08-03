@@ -10,7 +10,9 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import bgImage from '../assets/bg-app-cloud.png';
 
-export default function UserTypeSelection(props) {
+export default function UserTypeSelection({ navigation }) {
+  const navigateToSignUp = () => navigation.navigate('sign-up');
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -29,9 +31,7 @@ export default function UserTypeSelection(props) {
             We will adapt the app to suit your needs.
           </Text>
           <TouchableHighlight
-            onPress={() => {
-              alert('Personal button pressed');
-            }}
+            onPress={navigateToSignUp}
             activeOpacity={1}
             underlayColor="#3a8c9e"
             style={styles.button}
@@ -39,9 +39,7 @@ export default function UserTypeSelection(props) {
             <Text style={styles.buttonText}>Personal</Text>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => {
-              alert('Personal button pressed');
-            }}
+            onPress={navigateToSignUp}
             activeOpacity={1}
             underlayColor="#3a8c9e"
             style={styles.button}
