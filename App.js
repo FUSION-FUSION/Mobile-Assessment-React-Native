@@ -5,11 +5,13 @@ import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Splash from "./src/components/Splash";
 import "react-native-gesture-handler";
+import MainStack from "./src/stacks/Index";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   useEffect(() => {
     async function prepare() {
+      await SplashScreen.hideAsync();
       try {
         await SplashScreen.preventAutoHideAsync();
         await Font.loadAsync({
@@ -43,12 +45,7 @@ export default function App() {
   onLayoutRootView();
 
   if (appIsReady == true) {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
-    );
+    return <MainStack />;
   }
   if (!appIsReady) {
     const hide = async () => {
