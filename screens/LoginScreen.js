@@ -23,7 +23,7 @@ const LoginScreen = ({ navigation }) => {
                     <View style={styles.container}>
                         <Text style={styles.text}>Welcome!</Text>
                         <Text style={styles.smallerText}>
-                            Sign in to continue to Cargo Express
+                            Sign in to continue to Cargo Expresss
                         </Text>
                     </View>
 
