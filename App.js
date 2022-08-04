@@ -23,7 +23,7 @@ export default function App() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
-            <CreateAnAccountScreen />
+            <TrackingScreen />
 
             {/* <Stack.Navigator initialRouteName='AccountSuccessful'>
               <Stack.Screen name="User" component={UserScreen} />
