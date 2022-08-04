@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   View,
+  ScrollView,
   ImageBackground,
   Text,
   TextInput,
@@ -35,112 +36,124 @@ export default function SignUp({ navigation }) {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <LinearGradient
-          colors={['#cbd5e1', '#e2e8f0', '#f8fafc']}
-          style={styles.container}
-        >
-          {/* Background Image */}
-          <ImageBackground
-            source={bgImage}
-            style={styles.bgImage}
-            resizeMode="contain"
-          />
-          {/* Sign up Form */}
-          <View style={styles.formContainer}>
-            <Text style={styles.formHeading}>Welcome!</Text>
-            <Text style={styles.formDescription}>
-              Create an account to get started with Cargo Express
-            </Text>
-            {/* Name */}
-            <View style={styles.formGroup}>
-              <Text style={styles.formLabel}>Full Name</Text>
-              <TextInput
-                onChangeText={setName}
-                value={name}
-                style={styles.formInput}
-              />
-            </View>
-            {/* Email */}
-            <View style={styles.formGroup}>
-              <Text style={styles.formLabel}>Your E-mail</Text>
-              <TextInput
-                onChangeText={setEmail}
-                value={email}
-                style={styles.formInput}
-              />
-            </View>
-            {/* Phone */}
-            <View style={styles.formGroup}>
-              <Text style={styles.formLabel}>Phone Number</Text>
-              <TextInput
-                keyboardType="numeric"
-                onChangeText={setPhone}
-                value={phone}
-                style={styles.formInput}
-              />
-            </View>
-            {/* Password */}
-            <View style={styles.formGroup}>
-              <Text style={styles.formLabel}>Password</Text>
-              <TextInput
-                secureTextEntry={true}
-                onChangeText={setPassword}
-                value={password}
-                style={styles.formInput}
-              />
-            </View>
-            {/* Confirm Password */}
-            <View style={styles.formGroup}>
-              <Text style={styles.formLabel}>Confirm Password</Text>
-              <TextInput
-                secureTextEntry={true}
-                onChangeText={setConfirmPwd}
-                value={confirmPwd}
-                style={styles.formInput}
-              />
-            </View>
-          </View>
-          {/* Have an Account? */}
-          <View style={styles.loginLinkContainer}>
-            <Text style={styles.loginLinkHelpText}>
-              Already have an account?
-            </Text>
-            <TouchableOpacity onPress={login}>
-              <Text style={styles.loginLinkText}>Log In</Text>
-            </TouchableOpacity>
-          </View>
-          {/* Next/Back Buttons */}
-          <View style={styles.btnContainer}>
-            <TouchableHighlight
-              onPress={goBack}
-              activeOpacity={1}
-              underlayColor="#e2e8f0"
-              style={{ ...styles.button, ...styles.backButton }}
-            >
-              <Text style={{ ...styles.buttonText, ...styles.backButtonText }}>
-                Back
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        style={styles.scrollContainer}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <LinearGradient
+            colors={['#cbd5e1', '#e2e8f0', '#f8fafc']}
+            style={styles.container}
+          >
+            {/* Background Image */}
+            <ImageBackground
+              source={bgImage}
+              style={styles.bgImage}
+              resizeMode="contain"
+            />
+            {/* Sign up Form */}
+            <View style={styles.formContainer}>
+              <Text style={styles.formHeading}>Welcome!</Text>
+              <Text style={styles.formDescription}>
+                Create an account to get started with Cargo Express
               </Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={verify}
-              activeOpacity={1}
-              underlayColor="#3a8c9e"
-              style={{ ...styles.button, ...styles.nextButton }}
-            >
-              <Text style={{ ...styles.buttonText, ...styles.nextButtonText }}>
-                Next
+              {/* Name */}
+              <View style={styles.formGroup}>
+                <Text style={styles.formLabel}>Full Name</Text>
+                <TextInput
+                  onChangeText={setName}
+                  value={name}
+                  style={styles.formInput}
+                />
+              </View>
+              {/* Email */}
+              <View style={styles.formGroup}>
+                <Text style={styles.formLabel}>Your E-mail</Text>
+                <TextInput
+                  onChangeText={setEmail}
+                  value={email}
+                  style={styles.formInput}
+                />
+              </View>
+              {/* Phone */}
+              <View style={styles.formGroup}>
+                <Text style={styles.formLabel}>Phone Number</Text>
+                <TextInput
+                  keyboardType="numeric"
+                  onChangeText={setPhone}
+                  value={phone}
+                  style={styles.formInput}
+                />
+              </View>
+              {/* Password */}
+              <View style={styles.formGroup}>
+                <Text style={styles.formLabel}>Password</Text>
+                <TextInput
+                  secureTextEntry={true}
+                  onChangeText={setPassword}
+                  value={password}
+                  style={styles.formInput}
+                />
+              </View>
+              {/* Confirm Password */}
+              <View style={styles.formGroup}>
+                <Text style={styles.formLabel}>Confirm Password</Text>
+                <TextInput
+                  secureTextEntry={true}
+                  onChangeText={setConfirmPwd}
+                  value={confirmPwd}
+                  style={styles.formInput}
+                />
+              </View>
+            </View>
+            {/* Have an Account? */}
+            <View style={styles.loginLinkContainer}>
+              <Text style={styles.loginLinkHelpText}>
+                Already have an account?
               </Text>
-            </TouchableHighlight>
-          </View>
-        </LinearGradient>
-      </TouchableWithoutFeedback>
+              <TouchableOpacity onPress={login}>
+                <Text style={styles.loginLinkText}>Log In</Text>
+              </TouchableOpacity>
+            </View>
+            {/* Next/Back Buttons */}
+            <View style={styles.btnContainer}>
+              <TouchableHighlight
+                onPress={goBack}
+                activeOpacity={1}
+                underlayColor="#e2e8f0"
+                style={{ ...styles.button, ...styles.backButton }}
+              >
+                <Text
+                  style={{ ...styles.buttonText, ...styles.backButtonText }}
+                >
+                  Back
+                </Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={verify}
+                activeOpacity={1}
+                underlayColor="#3a8c9e"
+                style={{ ...styles.button, ...styles.nextButton }}
+              >
+                <Text
+                  style={{ ...styles.buttonText, ...styles.nextButtonText }}
+                >
+                  Next
+                </Text>
+              </TouchableHighlight>
+            </View>
+          </LinearGradient>
+        </TouchableWithoutFeedback>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  scrollContainer: {
     flex: 1,
   },
   bgImage: {

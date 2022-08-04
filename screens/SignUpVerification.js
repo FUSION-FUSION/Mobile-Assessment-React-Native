@@ -1,57 +1,158 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ImageBackground,
   Text,
   TextInput,
   StyleSheet,
-  TouchableWithoutFeedback,
   TouchableOpacity,
   TouchableHighlight,
+  TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
   Platform,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { AntDesign } from '@expo/vector-icons';
 import bgImage from '../assets/bg-app-cloud.png';
 
-export default function SignUpVerification({ navigation, loginUser }) {
+export default function SignUpVerification({ navigation }) {
+  // verification code
+  const [code, setCode] = useState({ 1: '', 2: '', 3: '', 4: '', 5: '' });
+  const insertDigit = (digit, position) => {
+    setCode((code) => ({ ...code, [position]: digit }));
+  };
+
+  const verify = () => {
+    // verify code
+    // ...
+    navigation.navigate('account-created');
+  };
+
+  // countdown code expiration (59 secs)
+  const [expired, setExpired] = useState(false);
+  const [timerId, setTimerId] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(59);
+
+  // start timer on mount
+  useEffect(() => {
+    const interval = setInterval(tick, 1000);
+    setTimerId(interval);
+    return () => clearInterval(timerId);
+  }, []);
+
+  // Tick
+  const tick = () => {
+    setTimeLeft((currentTime) => {
+      if (currentTime > 0) {
+        return currentTime - 1;
+      } else {
+        setExpired(true);
+        clearInterval(timerId);
+        return 0;
+      }
+    });
+  };
+
+  // resend code (count down again)
+  const resend = () => {
+    if (timeLeft > 0) {
+      setTimeLeft(59);
+    } else {
+      clearInterval(timerId);
+      setTimeLeft(59);
+      const newInterval = setInterval(tick, 1000);
+      setTimerId(newInterval);
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={['#cbd5e1', '#e2e8f0', '#f8fafc']}
-        style={styles.container}
-      >
-        <ImageBackground
-          source={bgImage}
-          style={styles.bgImage}
-          resizeMode="contain"
-        />
-        <View style={styles.content}>
-          <Text style={styles.heading}>Verification!</Text>
-          <Text style={styles.description}>
-            We sent you an SMS code on number +2348133445566
-          </Text>
-          <View>
-            <TouchableOpacity
-              onPress={() => alert('resend code')}
-              activeOpacity={0.8}
-              style={styles.resendBtn}
-            >
-              <Text style={styles.resendBtnText}>Resend Code</Text>
-            </TouchableOpacity>
-            <TouchableHighlight
-              onPress={() => alert('Proceed')}
-              activeOpacity={1}
-              underlayColor="#3a8c9e"
-              style={styles.proceedBtn}
-            >
-              <Text style={styles.proceedBtnText}>Proceed</Text>
-            </TouchableHighlight>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <LinearGradient
+          colors={['#cbd5e1', '#e2e8f0', '#f8fafc']}
+          style={styles.container}
+        >
+          <ImageBackground
+            source={bgImage}
+            style={styles.bgImage}
+            resizeMode="contain"
+          />
+          <View style={styles.content}>
+            <Text style={styles.heading}>Verification!</Text>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.description}>We sent you an </Text>
+              <Text style={styles.highlightedDescription}>SMS</Text>
+              <Text style={styles.description}> code on number </Text>
+              <Text style={styles.highlightedDescription}>+2348133445566</Text>
+            </View>
+            {/* Input Field */}
+            <View style={styles.inputField}>
+              <TextInput
+                keyboardType="numeric"
+                value={code[1]}
+                onChangeText={(digit) => insertDigit(digit, 1)}
+                style={styles.inputBox}
+              />
+              <TextInput
+                keyboardType="numeric"
+                value={code[2]}
+                onChangeText={(digit) => insertDigit(digit, 2)}
+                style={styles.inputBox}
+              />
+              <TextInput
+                keyboardType="numeric"
+                value={code[3]}
+                onChangeText={(digit) => insertDigit(digit, 3)}
+                style={styles.inputBox}
+              />
+              <TextInput
+                keyboardType="numeric"
+                value={code[4]}
+                onChangeText={(digit) => insertDigit(digit, 4)}
+                style={styles.inputBox}
+              />
+              <TextInput
+                keyboardType="numeric"
+                value={code[5]}
+                onChangeText={(digit) => insertDigit(digit, 5)}
+                style={styles.inputBox}
+              />
+            </View>
+            {/* Code Expiration Timer */}
+            <View style={styles.timerBox}>
+              <Text style={styles.timer}>
+                {expired
+                  ? 'Code expired'
+                  : 'Code expires in ' + '00:' + `0${timeLeft}`.slice(-2)}
+              </Text>
+            </View>
+            <View>
+              <TouchableOpacity
+                onPress={resend}
+                activeOpacity={0.6}
+                style={styles.resendBtn}
+              >
+                <Text style={styles.resendBtnText}>Resend Code</Text>
+              </TouchableOpacity>
+              <TouchableHighlight
+                onPress={verify}
+                activeOpacity={1}
+                underlayColor="#3a8c9e"
+                style={styles.proceedBtn}
+              >
+                <Text style={styles.proceedBtnText}>
+                  <AntDesign name="arrowright" size={34} color="white" />
+                </Text>
+              </TouchableHighlight>
+            </View>
           </View>
-        </View>
-      </LinearGradient>
-    </View>
+        </LinearGradient>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -72,14 +173,46 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: '900',
     color: '#4b5563',
-    paddingRight: 20,
     paddingTop: 50,
+  },
+  descriptionContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 10,
   },
   description: {
     fontSize: 20,
     color: '#4b5563',
-    paddingRight: 20,
-    marginTop: 10,
+  },
+  highlightedDescription: {
+    fontSize: 20,
+    color: '#46a5ba',
+  },
+  inputField: {
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between',
+    padding: 10,
+    marginTop: 20,
+  },
+  inputBox: {
+    width: 50,
+    height: 60,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    fontSize: 30,
+    fontWeight: '600',
+    color: '#4b5563',
+  },
+  timerBox: {
+    alignSelf: 'flex-end',
+    padding: 10,
+    paddingTop: 0,
+  },
+  timer: {
+    fontSize: 16,
+    color: '#b91c1c',
   },
   resendBtn: {
     marginTop: 30,
