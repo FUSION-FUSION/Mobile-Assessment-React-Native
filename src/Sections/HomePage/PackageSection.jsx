@@ -1,6 +1,7 @@
 import { View, Text } from "react-native";
 import { scale } from "react-native-size-matters";
 import Package from "../../components/Package";
+import Soon from "../../components/Soon";
 
 const PackageSection = () => {
   return (
@@ -40,6 +41,11 @@ const PackageSection = () => {
           subHeading="Request a vehichle"
           image={require("../../../assets/images/truck.png")}
           dashed={true}
+        />
+        <Soon
+          heading="International"
+          subHeading="Send packages to other countries"
+          image={require("../../../assets/images/plane.png")}
         />
       </View>
     </View>
