@@ -1,9 +1,16 @@
+import React, { useState, useRef } from 'react'
 import { View, ImageBackground, StyleSheet, Text, Pressable, TextInput, Image} from "react-native";
-import { Touchable } from "react-native-web";
+import { Touchable } from "react-native";
+import PhoneInput from "react-native-phone-number-input";
 
 
 
 const CreateAnAccountScreen = () => {
+
+   const [phoneNumber, setphoneNumber] = useState("");
+   const phoneInput = useRef(null);
+
+
     return (
       <ImageBackground
         source={require("../../assets/bg-app-cloud.png")}
@@ -22,9 +29,32 @@ const CreateAnAccountScreen = () => {
           <Text style={styles.formtext}>Your Email</Text>
           <TextInput style={styles.forminput} keyboardType="email-address" />
           <Text style={styles.formtext}>Phone Number</Text>
-          <TextInput style={styles.forminput} keyboardType="phone-pad">
-            <Text style={{ color: "#1F1F1F"}}>{"    "}+234</Text>
-          </TextInput>
+          <PhoneInput
+            ref={phoneInput}
+            defaultValue={phoneNumber}
+            defaultCode="NG"
+            layout="second"
+            withShadow
+            autoFocus
+            containerStyle={{
+              height: 40,
+              width: 100,
+              backgroundColor: "#FDFEFF",
+              borderRadius: 17,
+              marginTop: 4,
+              borderWidth: 1,
+              borderColor: "#1F1F1F"
+            }}
+            textContainerStyle={{
+              paddingVertical: 0,
+              backgroundColor: "#FDFEFF",
+              width: "100",
+              borderRadius: 17
+            }}
+            onChangeFormattedText={(text) => {
+              setphoneNumber(text);
+            }}
+          />
           <Text style={styles.formtext}>Password</Text>
           <TextInput style={styles.forminput} keyboardType="visible-password" />
           <Text style={styles.formtext}>Confirm Password</Text>
@@ -34,7 +64,7 @@ const CreateAnAccountScreen = () => {
         <View style={styles.bottomcontainer}>
           <Text style={styles.bottomtext}>
             Already have an account?{" "}
-             <Text style={{ color: "#46A5BA" }}>Log In</Text>
+            <Text style={{ color: "#46A5BA" }}>Log In</Text>
           </Text>
         </View>
 
