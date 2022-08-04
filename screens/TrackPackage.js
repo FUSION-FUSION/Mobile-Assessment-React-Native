@@ -10,6 +10,8 @@ import {
 import MapView from 'react-native-maps';
 import { StatusBar as Bar } from 'expo-status-bar';
 import { AntDesign } from '@expo/vector-icons';
+import Draggable from '../components/Draggable';
+import CargoDetails from '../components/CargoDetails';
 
 export default function TrackPercel({ route, navigation }) {
   // Get the tracking Id
@@ -39,6 +41,7 @@ export default function TrackPercel({ route, navigation }) {
   return (
     <View style={styles.container}>
       <Bar style="auto" />
+      {/* Map View */}
       <MapView
         style={styles.map}
         initialRegion={{
@@ -48,6 +51,14 @@ export default function TrackPercel({ route, navigation }) {
           longitudeDelta: 0.0421,
         }}
       />
+      {/* Draggable View */}
+      <View style={styles.draggable}>
+        <Draggable>
+          <CargoDetails />
+        </Draggable>
+      </View>
+
+      {/* Nav */}
       <View style={styles.nav}>
         <Pressable onPress={() => navigation.goBack()} style={styles.backBtn}>
           <AntDesign name="arrowleft" size={24} color="#1e293b" />
@@ -120,5 +131,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '300',
     color: '#1e293b',
+  },
+  draggable: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: '100%',
   },
 });
