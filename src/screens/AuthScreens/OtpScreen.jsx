@@ -166,7 +166,7 @@ const OtpScreen = () => {
               if (pin.pin5 != "") {
                 pin4Ref.current.focus();
               } else if (pin.pin5 == "") {
-                pin6Ref.current.focus();
+                1;
               }
             }}
             onKeyPress={({ nativeEvent }) => {

@@ -20,6 +20,7 @@ const WalletSection = () => {
         justifyContent: "space-between",
         flexDirection: "row",
         alignItems: "center",
+        marginVertical: scale(20),
       }}
       imageStyle={{
         resizeMode: "cover",
@@ -28,7 +29,7 @@ const WalletSection = () => {
       source={require("../../../assets/images/mask.png")}
     >
       <View>
-        <Text style={{ fontFamily: "normal", fontSize: 16 }}>
+        <Text style={{ fontFamily: "normal", fontSize: 16, marginTop: 5 }}>
           Total Balance
         </Text>
         <Text style={{ fontFamily: "medium", fontSize: 25, marginVertical: 2 }}>

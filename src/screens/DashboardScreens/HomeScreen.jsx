@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import BackGround from "../../components/BackGround";
 import TopBar from "../../Sections/HomePage/TopBar";
+import TrackSection from "../../Sections/HomePage/TrackSection";
 import WalletSection from "../../Sections/HomePage/WalletSection";
 
 const HomeScreen = () => {
@@ -22,6 +23,7 @@ const HomeScreen = () => {
     >
       <TopBar />
       <WalletSection />
+      <TrackSection />
     </ScrollView>
   );
 };
