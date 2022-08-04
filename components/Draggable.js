@@ -5,7 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 
 export default function Draggable({ children }) {
   const bottomSheet = useRef();
-  //useEffect(() => bottomSheet.current.show(), []);
+  useEffect(() => bottomSheet.current.show(), []);
 
   return (
     <View style={styles.container}>
