@@ -2,14 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { StatusBar as Bar } from 'expo-status-bar';
 
-export default function TrackPercel({ route }) {
-  // Get the tracking Id
-  const { trackingId } = route.params;
-
+export default function SendPackage(props) {
   return (
     <View style={styles.container}>
       <Bar style="auto" />
-      <Text>Track Percel</Text>
+      <Text>Send Package</Text>
     </View>
   );
 }

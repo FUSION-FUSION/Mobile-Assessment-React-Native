@@ -7,7 +7,7 @@ import SignUp from '../screens/SignUp';
 import LogIn from '../screens/LogIn';
 import SignUpVerification from '../screens/SignUpVerification';
 import AccountCreated from '../screens/AccountCreated';
-import TrackPercel from '../screens/TrackPercel';
+import TrackPackage from '../screens/TrackPackage';
 
 // Stack Navigator init
 const Stack = createNativeStackNavigator();
@@ -31,7 +31,7 @@ export default function MainNavigation() {
             initialRouteName="home"
           >
             <Stack.Screen name="home" component={Home} />
-            <Stack.Screen name="track-percel" component={TrackPercel} />
+            <Stack.Screen name="track-package" component={TrackPackage} />
           </Stack.Navigator>
         </>
       ) : (

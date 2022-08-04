@@ -14,12 +14,13 @@ export default function TrackCard({ navigation }) {
   const track = () => {
     // Tracking Id must be provided
     if (!trackingId) {
+      alert('Please provide waybill number');
       return;
     }
 
     // navigate to Tracking screen
     // Passing in trackingId as route parameter
-    navigation.navigate('track-percel', { trackingId });
+    navigation.navigate('track-package', { trackingId });
   };
 
   return (
