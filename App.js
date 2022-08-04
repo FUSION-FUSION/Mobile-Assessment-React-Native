@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ddd',
     paddingTop: '3rem',
-    paddingHorizontal: '2rem',
+    paddingHorizontal: '1rem',
     fontFamily: 'Nunito'
   },
 });

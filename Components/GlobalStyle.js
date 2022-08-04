@@ -19,10 +19,26 @@ import { StyleSheet } from 'react-native'
         backgroundColor: '#fff',
         padding: 10,
     },
+    imagesContainer: {
+      marginTop: 10,
+      backgroundColor: "#fff",
+      borderRadius: 5,
+      width: "10rem",
+      padding: 8,
+      flex: 1,
+      marginHorizontal: 10,
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: "500",
+    },
     paragraph:{
       marginVertical: 20,
       fontSize: 20,
       marginHorizontal: 'auto'   
+  },
+  blur:{
+    opacity: .5
   },
   btn:{
         paddingHorizontal: 20,
