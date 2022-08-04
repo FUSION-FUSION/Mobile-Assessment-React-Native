@@ -8,7 +8,8 @@ import {
   StatusBar,
 } from "react-native";
 import BackGround from "../../components/BackGround";
-import TopBar from "../../Sections/TopBar";
+import TopBar from "../../Sections/HomePage/TopBar";
+import WalletSection from "../../Sections/HomePage/WalletSection";
 
 const HomeScreen = () => {
   return (
@@ -20,6 +21,7 @@ const HomeScreen = () => {
       }}
     >
       <TopBar />
+      <WalletSection />
     </ScrollView>
   );
 };
