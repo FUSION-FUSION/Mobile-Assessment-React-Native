@@ -8,6 +8,7 @@ import LogIn from '../screens/LogIn';
 import SignUpVerification from '../screens/SignUpVerification';
 import AccountCreated from '../screens/AccountCreated';
 import TrackPackage from '../screens/TrackPackage';
+import BusinessAccountSignUp from '../screens/BusinessAccountSignUp';
 
 // Stack Navigator init
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,10 @@ export default function MainNavigation() {
             <Stack.Screen
               name="personal-sign-up"
               component={PersonalAccountSignUp}
+            />
+            <Stack.Screen
+              name="business-sign-up"
+              component={BusinessAccountSignUp}
             />
             <Stack.Screen
               name="signup-verification"
