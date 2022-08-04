@@ -74,6 +74,7 @@ export default function SignUp({ navigation }) {
             <View style={styles.formGroup}>
               <Text style={styles.formLabel}>Phone Number</Text>
               <TextInput
+                keyboardType="numeric"
                 onChangeText={setPhone}
                 value={phone}
                 style={styles.formInput}
