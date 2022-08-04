@@ -6,6 +6,7 @@ import OtpScreen from "../screens/AuthScreens/OtpScreen";
 import RegisterScreen from "../screens/AuthScreens/RegisterScreen";
 import SplashScreen from "../screens/AuthScreens/SplashScreen";
 import HomeScreen from "../screens/DashboardScreens/HomeScreen";
+import TrackScreen from "../screens/DashboardScreens/TrackScreen";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const MainStack = () => {
         <Stack.Screen component={CongratScreen} name="congrats" />
         <Stack.Screen component={LoginScreen} name="login" />
         <Stack.Screen component={HomeScreen} name="home" />
+        <Stack.Screen component={TrackScreen} name="track" />
       </Stack.Navigator>
     </NavigationContainer>
   );

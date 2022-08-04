@@ -24,7 +24,7 @@ const WalletSection = () => {
       }}
       imageStyle={{
         resizeMode: "cover",
-        left: scale(50),
+        left: scale(32),
       }}
       source={require("../../../assets/images/mask.png")}
     >

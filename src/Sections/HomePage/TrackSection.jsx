@@ -1,8 +1,10 @@
 import { View, Text, TextInput, Image } from "react-native";
 import { verticalScale } from "react-native-size-matters";
 import ShipButton from "../../components/ShipButton";
+import { useNavigation } from "@react-navigation/native";
 
 const TrackSection = () => {
+  const { navigate } = useNavigation();
   return (
     <View
       style={{
@@ -38,6 +40,7 @@ const TrackSection = () => {
         </View>
 
         <ShipButton
+          onPress={() => navigate("track")}
           title="Track"
           style={{
             width: 80,

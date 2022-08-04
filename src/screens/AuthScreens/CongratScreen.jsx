@@ -1,7 +1,7 @@
 import BackGround from "../../components/BackGround";
 import { View, Text, Image } from "react-native";
 import ShipButton from "../../components/ShipButton";
-import { scale } from "react-native-size-matters";
+import { scale, verticalScale } from "react-native-size-matters";
 import { useNavigation } from "@react-navigation/native";
 const CongratScreen = () => {
   const { navigate } = useNavigation();
@@ -9,7 +9,7 @@ const CongratScreen = () => {
     <BackGround>
       <View
         style={{
-          marginTop: scale(60),
+          marginTop: verticalScale(40),
           width: "90%",
           alignSelf: "center",
         }}
@@ -43,7 +43,10 @@ const CongratScreen = () => {
             marginVertical: 20,
           }}
         >
-          <Image source={require("../../../assets/images/congrats.png")} />
+          <Image
+            style={{}}
+            source={require("../../../assets/images/congrats.png")}
+          />
         </View>
 
         <ShipButton

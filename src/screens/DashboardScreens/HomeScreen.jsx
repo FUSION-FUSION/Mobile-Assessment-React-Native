@@ -17,7 +17,10 @@ const HomeScreen = () => {
     >
       <TopBar />
       <WalletSection />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{ marginVertical: 20 }}
+        showsVerticalScrollIndicator={false}
+      >
         <TrackSection />
         <PackageSection />
         <ActionSection />

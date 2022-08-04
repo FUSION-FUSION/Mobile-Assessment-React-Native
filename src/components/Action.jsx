@@ -31,12 +31,12 @@ const Action = ({ heading, subHeading, image, dashed }) => {
       </View>
 
       <View style={{}}>
-        <Image source={image} />
-
-        <Image
-          style={{ alignSelf: "flex-end" }}
-          source={require("../../assets/images/dark-back.png")}
-        />
+        <TouchableOpacity style={{ marginHorizontal: 10 }}>
+          <Image
+            style={{ alignSelf: "flex-end" }}
+            source={require("../../assets/images/dark-back.png")}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
