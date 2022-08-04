@@ -16,7 +16,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import bgImage from '../assets/bg-app-cloud.png';
 
-export default function SignUp({ navigation }) {
+export default function PersonalAccountSignUp({ navigation }) {
   // form state
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

@@ -12,7 +12,10 @@ import bgImage from '../assets/bg-app-cloud.png';
 
 export default function UserTypeSelection({ navigation }) {
   // Proceed to sign-up screen
-  const navigateToSignUp = () => navigation.navigate('sign-up');
+  const navigateToPersonalSignUp = () =>
+    navigation.navigate('personal-sign-up');
+  const navigateToBusinessSignUp = () =>
+    navigation.navigate('business-sign-up');
 
   return (
     <View style={styles.container}>
@@ -32,7 +35,7 @@ export default function UserTypeSelection({ navigation }) {
             We will adapt the app to suit your needs.
           </Text>
           <TouchableHighlight
-            onPress={navigateToSignUp}
+            onPress={navigateToPersonalSignUp}
             activeOpacity={1}
             underlayColor="#3a8c9e"
             style={styles.button}
@@ -40,7 +43,7 @@ export default function UserTypeSelection({ navigation }) {
             <Text style={styles.buttonText}>Personal</Text>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={navigateToSignUp}
+            onPress={navigateToBusinessSignUp}
             activeOpacity={1}
             underlayColor="#3a8c9e"
             style={styles.button}

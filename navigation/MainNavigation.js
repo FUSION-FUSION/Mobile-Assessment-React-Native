@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserTypeSelection from '../screens/UserTypeSelection';
 import Home from '../screens/Home';
-import SignUp from '../screens/SignUp';
+import PersonalAccountSignUp from '../screens/PersonalAccountSignUp';
 import LogIn from '../screens/LogIn';
 import SignUpVerification from '../screens/SignUpVerification';
 import AccountCreated from '../screens/AccountCreated';
@@ -46,7 +46,10 @@ export default function MainNavigation() {
               name="user-type-selection"
               component={UserTypeSelection}
             />
-            <Stack.Screen name="sign-up" component={SignUp} />
+            <Stack.Screen
+              name="personal-sign-up"
+              component={PersonalAccountSignUp}
+            />
             <Stack.Screen
               name="signup-verification"
               component={SignUpVerification}
