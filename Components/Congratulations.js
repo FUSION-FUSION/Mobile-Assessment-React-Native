@@ -3,15 +3,16 @@ import React from 'react'
 import {  Text, ImageBackground, Image, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { GlobalStyle } from './GlobalStyle'
 
-const Congratulations = () => {
+const Congratulations = ({navigation}) => {
   return (
     <ImageBackground source={require("../assets/bg-app-cloud.png")} >
      <View>
       <Text style={GlobalStyle.header}>Congratulations!</Text>
+      <Text>Your account has been succesfully created.</Text>
     <Image source={require('../assets/ic-congratulations.png')} style={{ height: '25rem', marginTop:'2rem'}}/>
     </View>
-    <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btnText}>
+    <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("dashboard")}>
+        <Text style={styles.btnText} >
             Continue
         </Text>
     </TouchableOpacity>

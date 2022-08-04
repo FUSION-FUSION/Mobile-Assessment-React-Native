@@ -27,7 +27,7 @@ const data = [
   { title: "Get help", description: "Get help & support from our team", key: "6" },
 ];
 
-const DashBoard = () => {
+const DashBoard = ({navigation}) => {
   return (
     <ImageBackground
       source={require("../assets/bg-app-cloud.png")}
@@ -36,7 +36,7 @@ const DashBoard = () => {
       <View style={styles.card}>
         <View>
           <Text>Total Balance</Text>
-          <Text>₦ 50,000</Text>
+          <Text style={{fontSize:25, fontWeight: 'bold'}}>₦ 50,000</Text>
         </View>
         <View style={{ position: "relative" }}>
           <TouchableOpacity style={styles.btn}>
@@ -63,7 +63,9 @@ const DashBoard = () => {
           </TouchableOpacity>
         </View>
       </View>
-     <Card/>
+
+     <Card />
+
      <View style={{marginTop:'2em'}}>
       <Text style={GlobalStyle.header}>Other actions</Text>
       <View>
@@ -71,7 +73,7 @@ const DashBoard = () => {
         numColumns={2}
         data={data}
         renderItem={({item})=>(
-          <View style={item.title === 'International'? `GlobalStyle.imagesContainer $(GlobalStyle.blur)` : GlobalStyle.imagesContainer}>
+          <View style={GlobalStyle.imagesContainer}>
             <Text style={GlobalStyle.title}>{item.title}</Text>
             <span
               style={{
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     paddingTop: "1rem",
     borderRadius: 25,
     paddingLeft: 10,
+    marginHorizontal: 10
   },
   card1: {
     marginVertical: 15,
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     height: "9rem",
     alignItems: "center",
+    marginHorizontal:10
   },
   btn: {
     backgroundColor: "#30A5Bf",

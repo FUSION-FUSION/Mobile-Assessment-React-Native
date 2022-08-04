@@ -6,13 +6,13 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
-  Pressable,
+  Pressable
 } from "react-native";
 import { GlobalStyle } from "./GlobalStyle";
 const inputs = [
-  { title: "Full Name", key: "1", name: "fullName" },
-  { title: "Your E-mail", key: "2", name: "email" },
-  { title: "Phone Number", key: "3", name: "phone", placeHolder: "+123" },
+  { title: "Business Name", key: "1", name: "fullName" },
+  { title: "Official E-mail", key: "2", name: "email" },
+  { title: "Contact Number", key: "3", name: "phone", placeHolder: "+123" },
   { title: "Password", key: "4", name: "password" },
   { title: "Confirm password", key: "5", name: "confirm" },
 ];
@@ -28,7 +28,7 @@ const Welcome = ({ navigation }) => {
       style={styles.container}
       source={require("../assets/bg-app-cloud.png")}
     >
-      <View style={{paddingHorizontal: 10, marginTop: 20}}>
+      <View style={{marginHorizontal: 15, marginTop: 20}}>
       <Text style={GlobalStyle.header}>Welcome!</Text>
       <Text style={styles.header2}>
         Create an account to get started with Cargo Express
@@ -38,8 +38,8 @@ const Welcome = ({ navigation }) => {
         {inputs.map((input) => {
           const { title, key } = input;
           return (
-            <View key={key}>
-              <Text style={styles.inputText}>{title}</Text>
+            <View key={key} style={{marginHorizontal: 10}}>
+              <Text style={styles.inputText}>{input.title}</Text>
               <TextInput
                 style={GlobalStyle.input}
                 placeholder={input.placeHolder}
@@ -49,8 +49,8 @@ const Welcome = ({ navigation }) => {
           );
         })}
         <Pressable style={GlobalStyle.paragraph} onPress={()=>navigation.navigate('sign-in')}>
-          <Text>Already have an account?
-          <span style={{ color: "#30A5BF", margin: 10}}>Login</span></Text>
+        <Text>  Already have an account?
+          <span style={{ color: "#30A5BF", margin:10 }}>Login</span> </Text>
         </Pressable>
         <View style={styles.btnView}>
           <TouchableOpacity
@@ -71,7 +71,6 @@ const Welcome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: '0 1rem'
   },
 
   header2: {
@@ -80,12 +79,11 @@ const styles = StyleSheet.create({
   },
   inputsContainer: {
     marginTop: 20,
-    marginHorizontal: 10
   },
 
   inputText: {
-    marginTop:10 ,
-    marginBottom:7,
+    marginTop: 10,
+    marginBottom: 7,
   },
 
   btnView: {

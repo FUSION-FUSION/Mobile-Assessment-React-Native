@@ -12,21 +12,24 @@ import { StyleSheet } from 'react-native'
       },
       background:{
         backgroundRepeat: 'noRepeat',
-        backgroundSize: 'auto'
+        backgroundSize: 'auto',
       },
       input:{
-        borderRadius: 10,
+        borderRadius: 20,
         backgroundColor: '#fff',
         padding: 10,
+        border: 'solid 1px #444',
     },
     imagesContainer: {
       marginTop: 10,
       backgroundColor: "#fff",
       borderRadius: 5,
       width: "10rem",
-      padding: 8,
+      paddingVertical: 8,
+      paddingHorizontal: 5,
       flex: 1,
       marginHorizontal: 10,
+
     },
     title: {
       fontSize: 18,

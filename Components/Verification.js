@@ -10,7 +10,7 @@ import {
 import { GlobalStyle } from "./GlobalStyle";
 import { Feather } from "@expo/vector-icons";
 
-const Verification = () => {
+const Verification = ({navigation}) => {
   const [timer, setTimer] = useState(59);
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -27,11 +27,13 @@ const Verification = () => {
   }, [timer]);
   return (
     <ImageBackground source={require("../assets/bg-app-cloud.png")}>
+      <View style={{marginTop: 20, marginHorizontal: 10}}>
       <Text style={GlobalStyle.header}>Verification!</Text>
       <Text style={styles.header2}>
         We sent you an <span style={{ color: "#30A5BF" }}>SMS</span> code on
         number <span style={{ color: "#30A5BF" }}>+2348108960610</span>
       </Text>
+      </View>
       <View style={styles.inputView}>
         <TextInput keyboardType="numeric" style={styles.input} />
         <TextInput keyboardType="numeric" style={styles.input} />
@@ -40,13 +42,13 @@ const Verification = () => {
         <TextInput keyboardType="numeric" style={styles.input} />
       </View>
       <View style={styles.timer}>
-        <Text style={styles.time}>{timer}</Text>
+        <Text style={styles.time} >{timer}</Text>
       </View>
       <View style={{ marginHorizontal: "auto", marginVertical: 20 }}>
-        <Pressable onPress={() => myInterval()}>
+        <Pressable onPress={() => setTimer(59)}>
           <Text style={styles.resend}> Resend code </Text>
         </Pressable>
-        <Pressable style={styles.arrow}>
+        <Pressable style={styles.arrow} onPress={()=>navigation.navigate('congratulations')}>
           <Feather name="arrow-right" size={28} color="#fff" />
         </Pressable>
       </View>
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#444",
     width: "70%",
-    lineHeight: 20,
+    lineHeight: 30,
   },
   input: {
     width: "3rem",
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     flex: 1,
     flexDirection: "row",
+    marginRight: 15,
   },
   time: {
     color: "red",

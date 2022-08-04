@@ -1,8 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
+import Welcome from './Welcome'
 
-const UserType = () => {
+const UserType = ({navigation}) => {
   return (
+    <ImageBackground source={require('../assets/bg-app-cloud.png')}>
     <View style={styles.container}>
       <Text style={styles.header}>
         What kind of user are you?
@@ -11,14 +13,15 @@ const UserType = () => {
         We will adapt the app to suit your needs!
       </Text>
       <View style={styles.btnView}>
-      <TouchableOpacity  style={styles.btn}> 
+      <TouchableOpacity  style={styles.btn} onPress={()=>navigation.navigate('welcome')}> 
       <Text style={styles.btnText}>Personal</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btn}> 
+      <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('e-commerce')}> 
       <Text style={styles.btnText}>E-commerce</Text>
       </TouchableOpacity>
       </View>
     </View>
+    </ImageBackground>
   )
 }
 
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         paddingTop: '3rem',
+        paddingHorizontal: 10
     },
     header:{
         fontSize: 20,
