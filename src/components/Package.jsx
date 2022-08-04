@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { scale, verticalScale } from "react-native-size-matters";
+import Line from "./line";
 
 const Package = ({ heading, subHeading, image, dashed }) => {
   return (
@@ -41,15 +42,7 @@ const Package = ({ heading, subHeading, image, dashed }) => {
         <Text style={{ fontFamily: "medium", fontSize: scale(16) }}>
           {heading}
         </Text>
-        <View
-          style={{
-            backgroundColor: "#46A5BA",
-            width: 20,
-            paddingVertical: 1.5,
-            marginVertical: 3,
-            marginBottom: 5,
-          }}
-        />
+        <Line />
         <Text style={{ fontFamily: "light" }}>{subHeading}</Text>
       </View>
 
