@@ -4,6 +4,7 @@ import { StatusBar as Bar } from 'expo-status-bar';
 import BalanceCard from '../components/BalanceCard';
 import Header from '../components/Header';
 import TrackCard from '../components/TrackCard';
+import SendPackage from '../components/SendPackage';
 
 export default function Home({ navigation }) {
   return (
@@ -13,8 +14,10 @@ export default function Home({ navigation }) {
       <Header user="John" />
       {/* Balance Card */}
       <BalanceCard balance="₦ 50,000" />
-      {/* Track Waybill */}
+      {/* Track Package */}
       <TrackCard navigation={navigation} />
+      {/* Send Package Section */}
+      <SendPackage />
     </ScrollView>
   );
 }
