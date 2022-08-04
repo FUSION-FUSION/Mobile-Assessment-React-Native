@@ -23,7 +23,11 @@ const SPRING_CONFIG = {
   stiffness: 500,
 };
 
+import { useNavigation } from "@react-navigation/native";
+import DistanceTracker from "../../Sections/Trackpage/DistanceTracker";
+import RouteTracker from "../../Sections/Trackpage/RouteTracker";
 const TrackScreen = () => {
+  const { goBack } = useNavigation();
   const dimensions = useWindowDimensions();
 
   const top = useSharedValue(dimensions.height);
@@ -68,6 +72,7 @@ const TrackScreen = () => {
           }}
         >
           <TouchableOpacity
+            onPress={goBack}
             activeOpacity={0.6}
             style={{ backgroundColor: "#fff", padding: 18, borderRadius: 12 }}
           >
@@ -112,7 +117,7 @@ const TrackScreen = () => {
               borderTopRightRadius: 40,
               elevation: 5,
               padding: 20,
-              paddingHorizontal: 35,
+              paddingHorizontal: 5,
             },
             style,
           ]}
@@ -122,6 +127,7 @@ const TrackScreen = () => {
               flexDirection: "row",
               justifyContent: "space-between",
               marginTop: 20,
+              paddingHorizontal: 20,
             }}
           >
             <View style={{ flex: 1 }}></View>
@@ -135,7 +141,7 @@ const TrackScreen = () => {
                   style={{ marginBottom: 15 }}
                   onPress={() => {
                     top.value = withSpring(
-                      dimensions.height / 4,
+                      dimensions.height / 6,
                       SPRING_CONFIG
                     );
                   }}
@@ -154,6 +160,10 @@ const TrackScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
+          </View>
+          <View style={{ marginVertical: 30 }}>
+            <DistanceTracker />
+            <RouteTracker />
           </View>
         </Animated.View>
       </PanGestureHandler>

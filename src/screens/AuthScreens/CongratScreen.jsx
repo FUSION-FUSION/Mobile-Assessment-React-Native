@@ -44,7 +44,7 @@ const CongratScreen = () => {
           }}
         >
           <Image
-            style={{}}
+            style={{ width: 500, aspectRatio: 1 }}
             source={require("../../../assets/images/congrats.png")}
           />
         </View>
