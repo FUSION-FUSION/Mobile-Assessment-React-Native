@@ -11,6 +11,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import bgImage from '../assets/bg-app-cloud.png';
 
 export default function UserTypeSelection({ navigation }) {
+  // Proceed to sign-up screen
   const navigateToSignUp = () => navigation.navigate('sign-up');
 
   return (
