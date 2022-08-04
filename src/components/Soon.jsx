@@ -28,16 +28,14 @@ const Soon = ({ heading, subHeading, image, dashed }) => {
           {heading}
         </Text>
         <Line />
-        <Text style={{ fontFamily: "light", marginVertical: 0 }}>
-          {subHeading}
-        </Text>
+        <Text style={{ fontFamily: "light" }}>{subHeading}</Text>
       </View>
 
       <View style={{}}>
         <Image source={image} />
 
         <Image
-          style={{ alignSelf: "flex-end", paddingBottom: 0 }}
+          style={{ alignSelf: "flex-end", bottom: 50 }}
           source={require("../../assets/images/coming.png")}
         />
       </View>
