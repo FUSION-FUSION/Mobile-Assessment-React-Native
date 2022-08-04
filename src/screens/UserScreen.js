@@ -1,24 +1,27 @@
-import { View, ImageBackground, StyleSheet, Text, Button, Pressable} from "react-native";
+import { View, ImageBackground, StyleSheet, Text, Button, Pressable, StatusBar} from "react-native";
 
 
 const UserScreen = () => {
     return (
-       <ImageBackground 
-          source={require("../../assets/bg-app-cloud.png")}
-        >
-            <View style={styles.container}>
-                <Text style={styles.welcometext}>What kind of user are you?</Text>
-                <Text style={styles.othertext}>We will adapt the app to suit your needs.</Text>
-            </View>
-            <View style={styles.btncontainer}>
-                <Pressable style={styles.btn}>
-                    <Text style={styles.text}>Personal</Text>
-                </Pressable>
-                <Pressable style={styles.btn}>
-                    <Text style={styles.text}>E-Commerce</Text>
-                </Pressable>
-            </View>
-        </ImageBackground>
+      <ImageBackground
+        source={require("../../assets/bg-app-cloud.png")}
+        style={{ backgroundColor: "#DBE4E9" , flex: 1, height: 240}}
+      >
+        <View style={styles.container}>
+          <Text style={styles.welcometext}>What kind of user are you?</Text>
+          <Text style={styles.othertext}>
+            We will adapt the app to suit your needs.
+          </Text>
+        </View>
+        <View style={styles.btncontainer}>
+          <Pressable style={styles.btn}>
+            <Text style={styles.text}>Personal</Text>
+          </Pressable>
+          <Pressable style={styles.btn}>
+            <Text style={styles.text}>E-Commerce</Text>
+          </Pressable>
+        </View>
+      </ImageBackground>
     );
 }
 

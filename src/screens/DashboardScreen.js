@@ -1,51 +1,64 @@
 import { Text, View, ScrollView, FlatList, TouchableOpacity, StyleSheet, Pressable, Image, ImageBackground } from 'react-native'
-
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 
 const DashboardScreen = () => {
     return (
-        <View style={styles.background}>
-            <View style={styles.detailsContainer}>
-                <Text style={styles.nameText}>Hello, John</Text>
-                <ImageBackground source={require("../../assets/ic-notification.png")} style={styles.notification}/>
-            </View>
-            
-            <ImageBackground style={styles.balanceContainer} source={require('../../assets/bg-dashboard-balance.png')}>
-                <Text style={styles.balText}>Total Balance</Text>
-                <View styles={styles.topupContainer}>
-                    <Text style={styles.balance}>$50,000</Text>
-                    <Pressable style={styles.topupBtn}>
-                        <Text style={styles.topupText}>Top up</Text>
-                    </Pressable>
-                </View>
-            </ImageBackground>
-            
-            <View style={styles.trackContainer}>
-                <Text>Track your waybill</Text>
-                <View style={styles.searchBar}>
-                    <Pressable>
-                        <Text>Track</Text>
-                    </Pressable>
-                </View>
-
-            </View>
-            <View>
-                <Text>Send a Package</Text>
-            </View>
-            <View>
-                <View></View>
-                <View></View>
-                <View></View>
-                <View></View>
-            </View>
-            <View>
-                <Text>Other Actions</Text>
-            </View>
-            <View>
-                <View></View>
-                <View></View>
-            </View>
+      <ScrollView style={styles.background}>
+        <View style={styles.detailsContainer}>
+          <Ionicons name="menu" size={24} color="black" />
+          <Text style={styles.nameText}>Hello, John</Text>
+          <Image
+            source={require("../../assets/ic-notification.png")}
+            style={styles.notification}
+          />
         </View>
+
+        <ImageBackground
+          style={styles.balanceContainer}
+          source={require("../../assets/bg-dashboard-balance.png")}
+        >
+          <Text style={styles.balText}>Total Balance</Text>
+          <Text style={styles.balance}>$50,000</Text>
+          <Pressable style={styles.topupBtn}>
+            <Text style={styles.topupText}>Top up</Text>
+          </Pressable>
+        </ImageBackground>
+
+        <View style={styles.trackContainer}>
+          <Text style={styles.track}>Track your waybill</Text>
+          <View style={styles.searchBar}>
+            <Image
+              source={require("../../assets/ic-search.png")}
+              style={styles.searchIcon}
+            />
+            <Text>Waybill number</Text>
+            <Pressable style={styles.trackBtn}>
+              <Text>Track</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={styles.textcontainer}>
+          <Text style={styles.sendText}>Send a Package</Text>
+        </View>
+
+        <View>
+          <View></View>
+          <View></View>
+          <View></View>
+          <View></View>
+        </View>
+
+        <View style={styles.textcontainer}>
+          <Text style={styles.sendText}>Other Actions</Text>
+        </View>
+
+        <View>
+          <View></View>
+          <View></View>
+        </View>
+      </ScrollView>
     );
 }
 
@@ -58,7 +71,7 @@ const styles = StyleSheet.create({
        fontWeight: "600",
        marginTop: 4,
        marginLeft: 20,
-       color: "#1F1F1F"
+       color: "#1F1F1F",
     },
     balText: {
        fontSize: 12,
@@ -77,12 +90,32 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         marginTop: 60,
-        flexDirection: "row"
+        flexDirection: "row",
+        marginLeft: 22
+        
     },
     nameText: {
         color: "#1F1F1F",
         fontSize: 20,
         fontWeight: "600",
+    },
+    notification: {
+        width: 20,
+        height: 23,
+        // marginLeft: 215
+    },
+    searchIcon: {
+        height: 4,
+        width: 6
+    },
+    sendText: {
+        fontSize: 20,
+        fontWeight: "500",
+        color: "#1F1F1F"
+    },
+    textcontainer:{
+        marginHorizontal: 22,
+        marginTop: 30
     },
     topupBtn: {
         height: 34,
@@ -90,7 +123,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#46A5BA",
         borderRadius: 17,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginLeft: 210,
 
     },
     topupContainer: {
@@ -100,6 +134,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "#ffffff",
         fontWeight: "500"
+    },
+    track: {
+        fontSize: 16,
+        fontWeight: "600",
+        marginTop: 20,
+        color: "#1F1F1F"
     },
     trackContainer: {
         height: 136,

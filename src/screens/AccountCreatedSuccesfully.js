@@ -1,21 +1,30 @@
 import { View, Text, StyleSheet, Image, Pressable } from "react-native"
+import { ImageBackground } from "react-native";
 
 const AccountCreatedSuccesfully = () => {
     return (
-        <View>
-            <View style={styles.container}>
-                <Text style={styles.congratsText}>Congratulations!</Text>
-                <Text style={styles.congratsMsg}>Your account has been successfully created.</Text>    
-            </View>
-            <View style={styles.imgContainer}>
-                <Image source={require('../../assets/ic-congratulations.png')} style={styles.img}/>
-            </View>
-            <View style={styles.btnContainer}>
-                <Pressable style={styles.continueBtn}>
-                    <Text style={styles.continueText}>Continue</Text>
-                </Pressable>
-            </View>
+      <ImageBackground
+        source={require("../../assets/bg-app-cloud.png")}
+        style={{ backgroundColor: "#DBE4E9", flex: 1, height: 240}}
+      >
+        <View style={styles.container}>
+          <Text style={styles.congratsText}>Congratulations!</Text>
+          <Text style={styles.congratsMsg}>
+            Your account has been successfully created.
+          </Text>
         </View>
+        <View style={styles.imgContainer}>
+          <Image
+            source={require("../../assets/ic-congratulations.png")}
+            style={styles.img}
+          />
+        </View>
+        <View style={styles.btnContainer}>
+          <Pressable style={styles.continueBtn}>
+            <Text style={styles.continueText}>Continue</Text>
+          </Pressable>
+        </View>
+      </ImageBackground>
     );
 }
 
