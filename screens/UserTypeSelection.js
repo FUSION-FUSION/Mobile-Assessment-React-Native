@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 32,
-    fontWeight: '600',
+    fontWeight: '900',
     color: '#4b5563',
     paddingRight: 20,
     paddingTop: 100,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 30,
-    fontWeight: '800',
+    fontWeight: '900',
     color: 'white',
   },
 });
