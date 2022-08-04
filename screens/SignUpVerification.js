@@ -38,7 +38,7 @@ export default function SignUpVerification({ navigation }) {
   useEffect(() => {
     const interval = setInterval(tick, 1000);
     setTimerId(interval);
-    return () => clearInterval(timerId);
+    return () => clearInterval(interval);
   }, []);
 
   // Tick

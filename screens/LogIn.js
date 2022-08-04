@@ -28,7 +28,7 @@ export default function LogIn({ navigation, loginUser }) {
   };
 
   // navigate to signup screen (to create account)
-  const signup = () => navigation.navigate('sign-up');
+  const signup = () => navigation.navigate('user-type-selection');
 
   return (
     <KeyboardAvoidingView
