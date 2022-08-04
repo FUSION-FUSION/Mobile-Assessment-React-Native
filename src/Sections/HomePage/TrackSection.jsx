@@ -27,7 +27,6 @@ const TrackSection = () => {
           borderRadius: 20,
           marginHorizontal: 15,
           marginVertical: 10,
-          paddingVertical: 3,
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -42,9 +41,9 @@ const TrackSection = () => {
           title="Track"
           style={{
             width: 80,
-            height: 40,
+            height: 50,
             justifyContent: "center",
-            borderRadius: 16,
+            borderRadius: 20,
           }}
         />
       </View>

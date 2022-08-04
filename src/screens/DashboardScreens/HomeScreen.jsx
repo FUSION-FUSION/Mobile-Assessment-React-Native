@@ -1,20 +1,13 @@
-import {
-  ScrollView,
-  Text,
-  Image,
-  ImageBackground,
-  TouchableOpacity,
-  View,
-  StatusBar,
-} from "react-native";
+import { ScrollView, StatusBar, View } from "react-native";
 import BackGround from "../../components/BackGround";
+import PackageSection from "../../Sections/HomePage/PackageSection";
 import TopBar from "../../Sections/HomePage/TopBar";
 import TrackSection from "../../Sections/HomePage/TrackSection";
 import WalletSection from "../../Sections/HomePage/WalletSection";
 
 const HomeScreen = () => {
   return (
-    <ScrollView
+    <View
       style={{
         flex: 1,
         paddingTop: StatusBar.currentHeight,
@@ -23,8 +16,11 @@ const HomeScreen = () => {
     >
       <TopBar />
       <WalletSection />
-      <TrackSection />
-    </ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <TrackSection />
+        <PackageSection />
+      </ScrollView>
+    </View>
   );
 };
 
