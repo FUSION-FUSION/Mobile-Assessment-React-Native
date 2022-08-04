@@ -20,7 +20,10 @@ const ActionSection = () => {
           heading="Waybill History"
           subHeading="Records of all your waybills."
         />
-        <Action />
+        <Action
+          heading="Get Help"
+          subHeading="Get help & support from our team"
+        />
       </View>
     </View>
   );
